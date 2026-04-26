@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 layout: docs
+permalink: /docs/getting-started/
 ---
 
 # Getting Started
@@ -39,6 +40,7 @@ Create a markdown file in `_docs/`:
 ---
 title: "My Doc"
 layout: docs
+permalink: /docs/my-doc/
 ---
 
 # Doc Title
