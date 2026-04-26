@@ -1,15 +1,7 @@
 <nav class="navbar">
     <div class="container nav-inner">
-        <a href="{{ "/" | relative_url }}" class="nav-brand">ZH</a>
+        <a href="{{ "/" | relative_url }}" class="nav-brand">ZPH</a>
         <div class="nav-links">
-            {% assign pages = site.pages | sort: 'order' %}
-            {% for p in pages %}
-                {% if p.title and p.layout != null %}
-                    {% unless p.title contains "Home" or p.title contains "About" or p.title contains "Docs" %}{% continue %}{% endunless %}
-                    <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-                {% endif %}
-            {% endfor %}
-            <!-- Override nav links manually -->
             <a href="{{ "/" | relative_url }}">HOME</a>
             <a href="{{ "/docs/" | relative_url }}">DOCS</a>
             <a href="{{ "/about.html" | relative_url }}">ABOUT</a>
