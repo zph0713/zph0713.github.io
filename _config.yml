@@ -1,0 +1,35 @@
+# _config.yml — zhoupeihao's Cyberpunk Blog
+
+title: zhoupeihao's Blog
+description: 'System Architecture & DevOps'
+baseurl: ""
+url: "https://zph0713.github.io"
+
+theme: jekyll-theme-hacker # fallback, but we override everything with custom CSS
+markdown: kramdown
+highlighter: rouge
+
+permalink: /posts/:title/
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: "_docs"
+      type: pages
+    values:
+      layout: page
+
+# Collections for docs
+collections:
+  docs:
+    output: true
+    permalink: /docs/:title/

@@ -1,0 +1,28 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+<div class="container hero">
+    <h1>zph's BLOG</h1>
+    <p>System architecture, devops, and the occasional cyberpunk rambling.</p>
+</div>
+
+<div class="container posts-list">
+    {% for post in site.posts %}
+        <div class="post-item">
+            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+            <span class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+        </div>
+    {% endfor %}
+
+    <hr style="border:none; border-top: 1px solid rgba(168,85,247,0.15); margin: 32px 0;">
+
+    <h2 style="font-family:'Orbitron',sans-serif; font-size:1rem; color:#fff; letter-spacing:2px;">Recent Posts</h2>
+    {% for post in site.posts limit:10 %}
+        <div class="card" style="margin-top: 24px;">
+            <h3 style="font-family:'Orbitron',sans-serif; font-size:1.2rem;"><a href="{{ post.url | relative_url }}" style="color:#fff;text-decoration:none;">{{ post.title }}</a></h3>
+            <p style="color:var(--text-dim); margin-top: 8px;">{{ post.date | date: "%B %d, %Y" }}{% if post.description %} — {{ post.description }}{% endif %}</p>
+        </div>
+    {% endfor %}
+</div>
