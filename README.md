@@ -12,6 +12,29 @@ Welcome to my digital corner of the web — where code, design, and ideas inters
 - **Custom cyberpunk CSS** — purple/cyan neon aesthetic with animated starfield
 - **GitHub Pages** — zero-cost hosting & automatic deployments
 
+## Structure
+
+```
+├── _docs/         # In-depth articles and guides
+│   └── getting-started.md
+├── _posts/        # Blog posts
+├── css/           # Cyberpunk theme stylesheets
+├── img/           # Generated assets (avatars, favicons)
+└── index.html     # Homepage — latest entries
+```
+
+## Running Locally
+
+```bash
+bundle install
+jekyll serve --host 0.0.0.0
+# → http://localhost:4000
+```
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
 ---
 
 *Powered by code, caffeine, and a persistent sense of wonder.*
