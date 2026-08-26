@@ -1,0 +1,10 @@
+source "https://mirrors.tuna.tsinghua.edu.cn/rubygems/"
+
+gem "jekyll", "~> 4.2.2"
+gem "jekyll-feed", "~> 0.15.1"
+gem "jekyll-seo-tag", "~> 2.8.0"
+gem "kramdown-parser-gfm", "~> 1.1.0"
+gem "webrick", "~> 1.8"
+gem "public_suffix", "~> 5.0.5"
+gem "ffi", "~> 1.15.5"
+gem "i18n", "~> 1.12.0"

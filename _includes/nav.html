@@ -1,10 +1,15 @@
-<nav class="navbar">
-    <div class="container nav-inner">
-        <a href="{{ "/" | relative_url }}" class="nav-brand">ZPH</a>
+<header class="site-header" id="siteHeader">
+    <div class="container nav">
+        <a href="{{ "/" | relative_url }}" class="nav-brand">
+            <span class="brand-badge">ZP</span>
+            <span>Peihao<span class="brand-dot">.</span></span>
+        </a>
         <div class="nav-links">
-            <a href="{{ "/" | relative_url }}">HOME</a>
-            <a href="{{ "/docs/" | relative_url }}">DOCS</a>
-            <a href="{{ "/about.html" | relative_url }}">ABOUT</a>
+            <a href="{{ "/" | relative_url }}">首页</a>
+            <a href="{{ "/tech/" | relative_url }}">DevOps &amp; AI</a>
+            <a href="{{ "/hobby/" | relative_url }}">兴趣生活</a>
+            <a href="{{ "/economy/" | relative_url }}">经济时事</a>
+            <a href="{{ "/about.html" | relative_url }}">关于</a>
         </div>
     </div>
-</nav>
+</header>

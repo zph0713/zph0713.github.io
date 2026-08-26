@@ -1,35 +1,45 @@
-# _config.yml — zhoupeihao's Cyberpunk Blog
+# _config.yml — Peihao's Garden
+# 清新个人博客 · DevOps & AI / 兴趣生活 / 经济时事
 
-title: zhoupeihao's Blog
-description: 'System Architecture & DevOps'
+title: "Peihao's Garden"
+description: "DevOps & AI 工程师的个人博客：技术实践、生活兴趣与经济观察。"
+author: "Zhou Peihao"
+tagline: "写代码，也写生活。"
+
 baseurl: ""
 url: "https://zph0713.github.io"
 
-theme: jekyll-theme-hacker # fallback, but we override everything with custom CSS
 markdown: kramdown
 highlighter: rouge
 
 permalink: /posts/:title/
 
-# Build settings
+# Build plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# 文章默认布局
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: post
-  - scope:
-      path: "_docs"
-      type: pages
-    values:
-      layout: page
 
-# Collections for docs
-collections:
-  docs:
-    output: true
-    permalink: /docs/:title/
+# ── 栏目配置 ──────────────────────────────
+# 新文章在 frontmatter 里写 categories: [tech] / [hobby] / [economy]
+category_names:
+  tech: "DevOps & AI"
+  hobby: "兴趣生活"
+  economy: "经济时事"
+
+category_icons:
+  tech: "🛠️"
+  hobby: "🎨"
+  economy: "📈"
+
+category_desc:
+  tech: "Kubernetes、CI/CD、云原生与 AI 工程的实践笔记"
+  hobby: "篮球、音乐与一切让我快乐的事"
+  economy: "宏观走势、市场热点与我的观察思考"

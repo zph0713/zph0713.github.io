@@ -1,15 +1,29 @@
 ---
 layout: default
 ---
-<article class="container post-content">
-    <div class="hero" style="padding-bottom: 24px;">
+<article class="post-page container reveal">
+    <header class="post-header">
+        <div class="post-meta">
+            {% assign cat = page.categories.first %}
+            {% if cat %}
+                <span class="pill pill-{{ cat }}">{{ site.category_names[cat] | default: cat }}</span>
+            {% endif %}
+            <span class="post-date">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</span>
+            <span class="post-date">·</span>
+            <span class="post-date">{{ content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟读完</span>
+        </div>
         <h1>{{ page.title }}</h1>
-        <p class="post-meta">
-            {{ page.date | date: "%B %d, %Y" }} &nbsp;·&nbsp;
-            {% if page.categories %}{{ page.categories | join: ", " }}{% endif %}
-            <div class="post-tags">{% for tag in page.tags %}<span>#{{ tag }}</span>{% endfor %}</div>
-        </p>
+        {% if page.description %}<p class="post-desc">{{ page.description }}</p>{% endif %}
+    </header>
+
+    <div class="post-content">
+        {{ content }}
     </div>
 
-    {{ content }}
+    <footer class="post-footer">
+        <div class="post-tags">
+            {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+        </div>
+        <a class="btn btn-ghost" href="{{ "/" | relative_url }}">← 返回首页</a>
+    </footer>
 </article>

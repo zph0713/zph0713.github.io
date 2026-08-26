@@ -1,6 +1,16 @@
-<footer class="footer">
-    <div class="container">
-        <p>{{ site.title }} · Built with Jekyll & Cyberpunk</p>
-        <p style="margin-top: 8px; font-size: 0.8rem;">Powered by code, caffeine, and a persistent sense of wonder.</p>
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <span class="brand-badge">ZP</span>
+            <p>{{ site.author }}</p>
+        </div>
+        <div class="footer-links">
+            <a href="{{ "/tech/" | relative_url }}">DevOps &amp; AI</a>
+            <a href="{{ "/hobby/" | relative_url }}">兴趣生活</a>
+            <a href="{{ "/economy/" | relative_url }}">经济时事</a>
+            <a href="{{ "/about.html" | relative_url }}">关于</a>
+            <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+        </div>
+        <p class="footer-note">© {{ 'now' | date: "%Y" }} {{ site.author }} · {{ site.tagline }} · 用 ❤️ 与咖啡驱动</p>
     </div>
 </footer>

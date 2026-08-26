@@ -1,131 +1,78 @@
-# ZPH's Cyberpunk Blog 🌃 / 赛博朋克博客
+# Peihao's Garden 🌿
+
+清新风格的个人博客 —— DevOps & AI / 兴趣生活 / 经济时事
+
+基于 **Jekyll** 构建，托管于 **GitHub Pages**：push 到 `master` 分支自动构建上线，零成本、无需服务器。
 
 ---
 
-## About / 关于
+## ✍️ 怎么发新文章（最重要的部分）
 
-A cyberpunk-themed personal blog built with Jekyll — where code meets neon light.
-一个使用 Jekyll 构建的赛博朋克风格个人博客——代码与霓虹交织。
+在 `_posts/` 目录新建一个 Markdown 文件，文件名格式：`YYYY-MM-DD-文章标题.md`（如 `2026-08-26-hello-world.md`）。
 
-> *Powered by code, caffeine, and a persistent sense of wonder.*
-> *由代码、咖啡和永不熄灭的好奇心驱动。*
+文件开头写 frontmatter（三横线之间），**categories 决定文章进哪个栏目**：
 
+```markdown
+---
+layout: post
+title: "文章标题"
+date: 2026-08-26
+categories: [tech]          # tech=DevOps & AI | hobby=兴趣生活 | economy=经济时事
+tags: [kubernetes, devops]
+description: "一句话摘要，会显示在文章页标题下方"
 ---
 
-## Tech Stack / 技术栈
-
-| Layer | Technology |
-|-------|------------|
-| **Framework** | [Jekyll](https://jekyllrb.com/) — static site generation |
-| **Styling** | Custom cyberpunk CSS (purple `#a855f7` + cyan `#22d3ee`) |
-| **Typography** | Orbitron (headings) + Fira Code (body/code) |
-| **Hosting** | [GitHub Pages](https://pages.github.com/) — zero-cost, auto-deploy |
-
----
-
-## Features / 特性
-
-- ✨ **Starfield Animation** — Animated background stars via CSS keyframes
-- 🎨 **Neon Glow Effects** — Purple/cyan accents with `text-shadow` glow
-- 🔤 **Cyberpunk Typography** — Orbitron for headings, Fira Code for monospace
-- 📚 **Docs System** — Markdown docs auto-rendered as pages (`_docs/`)
-- 🖼️ **Code Highlighting** — Custom dark purple syntax theme
-
----
-
-## Project Structure / 项目结构
+正文用 Markdown 写，支持代码高亮、表格、图片、引用块。
 
 ```
-├── _config.yml              # Jekyll configuration
-├── css/                     # Stylesheets
-│   ├── cyberpunk.css        # Main theme
-│   └── syntax.css           # Code highlighting
-├── _includes/               # Reusable components
-│   ├── head.html            # Meta tags, fonts
-│   ├── nav.html             # Navigation bar
-│   └── footer.html          # Footer
-├── _layouts/                # Page layouts
-│   ├── default.html         # Base layout (with starfield)
-│   ├── post.html            # Blog posts
-│   ├── page.html            # Static pages
-│   └── docs.html            # Documentation
-├── _posts/                  # Blog articles
-├── _docs/                   # In-depth guides
-├── img/                     # Generated images
-├── index.html               # Homepage — latest posts
-├── about.html               # About Me page
-└── 404.html                 # Custom 404 page
 ```
+
+> 图片放在 `assets/images/` 目录，正文里用 `![描述](/assets/images/xxx.png)` 引用。
+
+写好后 push 到 GitHub，等一两分钟 GitHub Pages 自动构建上线。
 
 ---
 
-## Running Locally / 本地运行
+## 🗂 栏目说明
 
-### Prerequisites / 前置要求
+| 栏目 | categories 值 | 内容 |
+|------|--------------|------|
+| DevOps & AI | `tech` | Kubernetes、CI/CD、云原生、AI 工程实践 |
+| 兴趣生活 | `hobby` | 篮球、音乐、生活日常 |
+| 经济时事 | `economy` | 宏观走势、市场热点、观察思考 |
 
-- [Ruby](https://www.ruby-lang.org/) (3.2+) with Bundler
-- [Jekyll CLI](https://jekyllrb.com/docs/installation/) (`gem install jekyll bundler`)
+栏目名称、图标、简介都在 `_config.yml` 的 `category_*` 配置里，想改直接编辑。
 
-### Steps / 步骤
+---
+
+## 🛠 本地预览
 
 ```bash
-# Clone the repository
-git clone https://github.com/zph0713/zph0713.github.io.git
-cd zph0713.github.io
-
-# Install dependencies
+# 首次需要装依赖（macOS 系统自带 ruby 即可）
+gem install bundler
 bundle install
 
-# Start the development server
-jekyll serve --host 0.0.0.0
+# 启动本地服务，浏览器打开 http://localhost:4000
+bundle exec jekyll serve
 ```
 
-Visit `http://localhost:4000` to see your blog live. / 访问 localhost 查看效果。
+## 📁 项目结构
 
----
-
-## Writing Content / 写作内容
-
-### Blog Post / 博客文章
-
-Create a new file in `_posts/`:
-
-```markdown
----
-title: "My New Post"
-date: 2026-04-26
-categories: [AI, Research]
-tags: [agent, LLM]
-description: "A short description."
-layout: post
----
-
-# My Title
-...
+```
+├── _config.yml          # 站点配置（标题、栏目定义）
+├── _posts/              # 文章目录（唯一需要经常动的目录）
+├── _layouts/            # 页面模板（default / post / page）
+├── _includes/           # 公共组件（导航、页脚、head）
+├── css/                 # main.css 主题样式 + syntax.css 代码高亮
+├── assets/              # favicon、js、图片
+├── index.html           # 首页
+├── tech.html            # DevOps & AI 栏目页
+├── hobby.html           # 兴趣生活栏目页
+├── economy.html         # 经济时事栏目页
+├── about.html           # 关于我
+└── 404.html
 ```
 
-### Documentation / 文档
+## 📄 License
 
-Create a new file in `_docs/`:
-
-```markdown
----
-title: "My Guide"
-layout: docs
-permalink: /docs/my-guide/
----
-
-# Title
-...
-```
-
----
-
-## License / 许可
-
-This project is open source and available under the [MIT License](LICENSE). / MIT 开源许可。
-
----
-
-*Stay curious. Build beautiful things.* 🚀
-# Test commit
+MIT

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     {% include head.html %}
 </head>
 <body>
-    <div class="starfield"></div>
+    <div class="bg-blobs" aria-hidden="true">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+    </div>
     {% include nav.html %}
-    {{ content }}
+    <main>
+        {{ content }}
+    </main>
     {% include footer.html %}
 </body>
 </html>
