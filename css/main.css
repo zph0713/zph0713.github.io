@@ -456,9 +456,33 @@ img { max-width: 100%; }
 }
 .about-card h1 { font-size: 1.9rem; font-weight: 800; }
 .about-role {
-  color: var(--brand); font-weight: 700; margin: 8px 0 18px;
+  color: var(--brand); font-weight: 700; margin: 8px 0 14px;
+}
+
+.about-certs {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.cert-badge {
+  font-family: var(--mono); font-weight: 800; font-size: 0.88rem;
+  color: var(--brand); letter-spacing: 1px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 10px; padding: 7px 16px;
+  box-shadow: var(--shadow-sm);
 }
 .about-card > p { color: var(--ink-2); line-height: 2; }
+
+.skill-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;
+}
+.skill-tag {
+  font-size: 0.82rem; font-weight: 600; color: var(--ink-2);
+  background: var(--bg); border: 1px solid var(--line);
+  padding: 5px 13px; border-radius: 999px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.skill-tag:hover { color: var(--brand); border-color: rgba(99, 102, 241, 0.35); }
 
 .about-grid {
   display: grid; gap: 18px; margin-top: 26px;
