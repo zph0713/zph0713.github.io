@@ -129,11 +129,11 @@ img { max-width: 100%; }
 /* ── Hero ─────────────────────────────────── */
 .hero {
   position: relative;
-  padding: 96px 0 72px;
+  padding: 92px 0 64px;
   background:
     radial-gradient(60% 120% at 15% 0%, rgba(165, 200, 255, 0.35), transparent 60%),
     radial-gradient(50% 100% at 90% 10%, rgba(216, 196, 255, 0.3), transparent 55%);
-  text-align: center;
+  text-align: left;
   overflow: hidden;
 }
 
@@ -146,9 +146,9 @@ img { max-width: 100%; }
 }
 
 .hero-title {
-  margin: 26px 0 14px;
-  font-size: clamp(2.2rem, 5.4vw, 3.4rem);
-  font-weight: 800; letter-spacing: 0.5px; line-height: 1.25;
+  margin: 26px 0 12px;
+  font-size: clamp(2.9rem, 7.5vw, 4.9rem);
+  font-weight: 900; letter-spacing: -0.02em; line-height: 1.08;
 }
 .grad-text {
   background: var(--grad-main);
@@ -157,12 +157,13 @@ img { max-width: 100%; }
 }
 
 .hero-sub {
-  color: var(--ink-2); font-size: 1.08rem; line-height: 1.9;
+  font-family: var(--mono);
+  color: var(--ink-2); font-size: 1.04rem; line-height: 1.8;
 }
 
 .hero-actions {
   margin-top: 34px;
-  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  display: flex; gap: 14px; flex-wrap: wrap;
 }
 
 .btn {
@@ -187,17 +188,17 @@ img { max-width: 100%; }
 
 .wave {
   display: block; width: 100%; height: 70px;
-  margin-top: 60px;
+  margin-top: 56px;
 }
 .wave path { fill: var(--bg); }
 
 /* ── 区块通用 ─────────────────────────────── */
-.section { padding: 64px 0; }
-.section-head { margin-bottom: 34px; }
+.section { padding: 56px 0; }
+.section-head { margin-bottom: 30px; }
 .section-head h2 {
-  font-size: 1.7rem; font-weight: 800; letter-spacing: 0.3px;
+  font-size: 1.7rem; font-weight: 800; letter-spacing: -0.01em;
 }
-.section-head p { color: var(--ink-3); margin-top: 6px; font-size: 0.98rem; }
+.section-head p { color: var(--ink-3); margin-top: 6px; font-size: 0.98rem; font-family: var(--mono); }
 
 /* ── 分类卡片 ─────────────────────────────── */
 .cat-grid {
@@ -230,6 +231,13 @@ img { max-width: 100%; }
 .cat-tech { --grad-card: var(--grad-tech); }
 .cat-hobby { --grad-card: var(--grad-hobby); }
 .cat-economy { --grad-card: var(--grad-economy); }
+.cat-language { --grad-card: linear-gradient(135deg, #fbbf24, #f59e0b); }
+
+.cat-num {
+  position: absolute; top: 22px; right: 26px;
+  font-family: var(--mono); font-size: 0.88rem; font-weight: 700;
+  color: var(--ink-3); letter-spacing: 1px;
+}
 
 .cat-icon {
   width: 58px; height: 58px; border-radius: 18px;
@@ -292,6 +300,7 @@ img { max-width: 100%; }
 .pill-tech { background: var(--grad-tech); }
 .pill-hobby { background: var(--grad-hobby); }
 .pill-economy { background: var(--grad-economy); }
+.pill-language { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
 .pill-none { background: #94a3b8; }
 
 .post-row .post-title {

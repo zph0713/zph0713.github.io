@@ -1,10 +1,10 @@
 # _config.yml — Peihao's Garden
-# 清新个人博客 · DevOps & AI / 兴趣生活 / 经济时事
+# Personal blog: DevOps & AI / Interests & Life / Economy & Current Events / Language Learning
 
 title: "Peihao's Garden"
-description: "DevOps & AI 工程师的个人博客：技术实践、生活兴趣与经济观察。"
-author: "Zhou Peihao"
-tagline: "写代码，也写生活。"
+description: "Personal blog by Peihao Zhou — DevOps & AI engineering, life interests, economy & current events, and language learning."
+author: "Peihao Zhou"
+tagline: "Code · Life · Economy · Language"
 
 baseurl: ""
 url: "https://zph0713.github.io"
@@ -19,7 +19,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# 文章默认布局
+# Default layout for posts
 defaults:
   - scope:
       path: ""
@@ -27,19 +27,22 @@ defaults:
     values:
       layout: post
 
-# ── 栏目配置 ──────────────────────────────
-# 新文章在 frontmatter 里写 categories: [tech] / [hobby] / [economy]
+# ── Columns ─────────────────────────────────
+# New posts: put categories: [tech] / [hobby] / [economy] / [language] in frontmatter
 category_names:
   tech: "DevOps & AI"
-  hobby: "兴趣生活"
-  economy: "经济时事"
+  hobby: "Interests & Life"
+  economy: "Economy & Current Events"
+  language: "Language Learning"
 
 category_icons:
   tech: "🛠️"
   hobby: "🎨"
   economy: "📈"
+  language: "📚"
 
 category_desc:
-  tech: "Kubernetes、CI/CD、云原生与 AI 工程的实践笔记"
-  hobby: "篮球、音乐与一切让我快乐的事"
-  economy: "宏观走势、市场热点与我的观察思考"
+  tech: "Kubernetes, CI/CD, cloud-native & AI engineering notes"
+  hobby: "Basketball, music & everything that makes life fun"
+  economy: "Macro trends, market moves & my take on the news"
+  language: "My English learning journey — tips, notes & practice logs"

@@ -1,75 +1,75 @@
 # Peihao's Garden 🌿
 
-清新风格的个人博客 —— DevOps & AI / 兴趣生活 / 经济时事
+A clean personal blog — **DevOps & AI / Interests & Life / Economy & Current Events / Language Learning**
 
-基于 **Jekyll** 构建，托管于 **GitHub Pages**：push 到 `master` 分支自动构建上线，零成本、无需服务器。
+Built with **Jekyll**, hosted on **GitHub Pages**: push to `master` and it builds & deploys automatically. Zero cost, no server.
 
 ---
 
-## ✍️ 怎么发新文章（最重要的部分）
+## ✍️ How to publish a post
 
-在 `_posts/` 目录新建一个 Markdown 文件，文件名格式：`YYYY-MM-DD-文章标题.md`（如 `2026-08-26-hello-world.md`）。
+Create a Markdown file in `_posts/`, named `YYYY-MM-DD-slug.md` (e.g. `2026-08-26-hello-world.md`).
 
-文件开头写 frontmatter（三横线之间），**categories 决定文章进哪个栏目**：
+The frontmatter decides which column the post lands in (**categories**):
 
 ```markdown
 ---
 layout: post
-title: "文章标题"
+title: "My Post Title"
 date: 2026-08-26
-categories: [tech]          # tech=DevOps & AI | hobby=兴趣生活 | economy=经济时事
+categories: [tech]          # tech | hobby | economy | language
 tags: [kubernetes, devops]
-description: "一句话摘要，会显示在文章页标题下方"
+description: "One-line summary shown under the title"
 ---
 
-正文用 Markdown 写，支持代码高亮、表格、图片、引用块。
-
-```
+Markdown body. Code highlighting, tables, images and blockquotes supported.
 ```
 
-> 图片放在 `assets/images/` 目录，正文里用 `![描述](/assets/images/xxx.png)` 引用。
+> Images go in `assets/images/`, referenced as `![alt](/assets/images/xxx.png)`.
 
-写好后 push 到 GitHub，等一两分钟 GitHub Pages 自动构建上线。
-
----
-
-## 🗂 栏目说明
-
-| 栏目 | categories 值 | 内容 |
-|------|--------------|------|
-| DevOps & AI | `tech` | Kubernetes、CI/CD、云原生、AI 工程实践 |
-| 兴趣生活 | `hobby` | 篮球、音乐、生活日常 |
-| 经济时事 | `economy` | 宏观走势、市场热点、观察思考 |
-
-栏目名称、图标、简介都在 `_config.yml` 的 `category_*` 配置里，想改直接编辑。
+Push to GitHub — GitHub Pages rebuilds in about a minute.
 
 ---
 
-## 🛠 本地预览
+## 🗂 Columns
+
+| Column | categories value | Topics |
+|--------|------------------|--------|
+| DevOps & AI | `tech` | Kubernetes, CI/CD, cloud-native, AI engineering |
+| Interests & Life | `hobby` | Basketball, music, daily life |
+| Economy & Current Events | `economy` | Macro trends, markets, current events |
+| Language Learning | `language` | English learning journey, tips, practice logs |
+
+Column names, icons and descriptions live in `_config.yml` under `category_*`.
+
+---
+
+## 🛠 Local development
 
 ```bash
-# 首次需要装依赖（macOS 系统自带 ruby 即可）
+# macOS system ruby works (ruby 2.6+)
 gem install bundler
 bundle install
 
-# 启动本地服务，浏览器打开 http://localhost:4000
+# Serve at http://localhost:4000
 bundle exec jekyll serve
 ```
 
-## 📁 项目结构
+## 📁 Project structure
 
 ```
-├── _config.yml          # 站点配置（标题、栏目定义）
-├── _posts/              # 文章目录（唯一需要经常动的目录）
-├── _layouts/            # 页面模板（default / post / page）
-├── _includes/           # 公共组件（导航、页脚、head）
-├── css/                 # main.css 主题样式 + syntax.css 代码高亮
-├── assets/              # favicon、js、图片
-├── index.html           # 首页
-├── tech.html            # DevOps & AI 栏目页
-├── hobby.html           # 兴趣生活栏目页
-├── economy.html         # 经济时事栏目页
-├── about.html           # 关于我
+├── _config.yml          # Site config (title, columns)
+├── _posts/              # Posts — the only directory you touch regularly
+├── _layouts/            # Templates (default / post / page)
+├── _includes/           # Components (nav, footer, head)
+├── css/                 # main.css theme + syntax.css code highlighting
+├── assets/              # favicon, js, images
+├── index.html           # Home — latest posts + columns
+├── tech.html            # DevOps & AI column
+├── hobby.html           # Interests & Life column
+├── economy.html         # Economy & Current Events column
+├── language.html        # Language Learning column
+├── about.html           # About
 └── 404.html
 ```
 

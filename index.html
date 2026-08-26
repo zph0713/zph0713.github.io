@@ -1,20 +1,17 @@
 ---
 layout: default
-title: 首页
+title: Home
 ---
 
 <!-- Hero -->
 <section class="hero">
     <div class="container reveal">
-        <span class="hero-badge">✨ 欢迎来到我的小站</span>
-        <h1 class="hero-title">你好，我是 <span class="grad-text">培豪</span></h1>
-        <p class="hero-sub">
-            DevOps &amp; AI 工程师 · 好奇心驱动 · 热爱生活的技术人<br>
-            在这里记录技术实践、兴趣探索与经济观察
-        </p>
+        <span class="hero-badge">👋 Hello, world</span>
+        <h1 class="hero-title">Peihao <span class="grad-text">Zhou</span></h1>
+        <p class="hero-sub">DevOps &amp; AI Engineer — building things, learning languages, writing it down.</p>
         <div class="hero-actions">
-            <a class="btn btn-primary" href="#posts">📖 浏览文章</a>
-            <a class="btn btn-ghost" href="https://github.com/zph0713" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn-primary" href="https://github.com/zph0713" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn-ghost" href="#posts">Latest posts ↓</a>
         </div>
     </div>
     <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
@@ -22,40 +19,18 @@ title: 首页
     </svg>
 </section>
 
-<!-- 三个栏目 -->
-<section class="section container reveal">
-    <div class="section-head">
-        <h2>三个栏目</h2>
-        <p>这里的一切，都围绕这三件事展开</p>
-    </div>
-    <div class="cat-grid">
-        {% assign cats = "tech,hobby,economy" | split: "," %}
-        {% for c in cats %}
-            {% assign cposts = site.categories[c] %}
-            {% if cposts %}{% assign cposts = cposts | sort: 'date' | reverse %}{% endif %}
-            <a class="cat-card cat-{{ c }}" href="{{ "/" | append: c | append: "/" | relative_url }}">
-                <span class="cat-icon">{{ site.category_icons[c] }}</span>
-                <h3>{{ site.category_names[c] }}</h3>
-                <p>{{ site.category_desc[c] }}</p>
-                <span class="cat-count">{{ cposts.size | default: 0 }} 篇文章</span>
-                <span class="cat-enter">进入栏目 →</span>
-            </a>
-        {% endfor %}
-    </div>
-</section>
-
-<!-- 最新文章 -->
+<!-- Latest posts -->
 <section class="section container reveal" id="posts">
     <div class="section-head">
-        <h2>最新文章</h2>
-        <p>最近更新，欢迎随时回来看看</p>
+        <h2>Latest Posts</h2>
+        <p>Fresh from the garden</p>
     </div>
     {% assign posts = site.posts %}
     {% if posts.size > 0 %}
         <div class="post-list">
-            {% for post in posts limit: 10 %}
+            {% for post in posts %}
                 <a class="post-row" href="{{ post.url | relative_url }}">
-                    <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                    <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
                     {% assign cat = post.categories.first %}
                     <span class="pill pill-{{ cat }}">{{ site.category_names[cat] | default: cat }}</span>
                     <span class="post-title">{{ post.title }}</span>
@@ -64,6 +39,29 @@ title: 首页
             {% endfor %}
         </div>
     {% else %}
-        <div class="empty-state">🌱 第一篇文章正在路上，敬请期待…</div>
+        <div class="empty-state">🌱 No posts yet — the first one is brewing…</div>
     {% endif %}
+</section>
+
+<!-- Columns -->
+<section class="section container reveal">
+    <div class="section-head">
+        <h2>Columns</h2>
+        <p>Four things I write about</p>
+    </div>
+    <div class="cat-grid">
+        {% assign cats = "tech,hobby,economy,language" | split: "," %}
+        {% for c in cats %}
+            {% assign cposts = site.categories[c] %}
+            {% if cposts %}{% assign cposts = cposts | sort: 'date' | reverse %}{% endif %}
+            <a class="cat-card cat-{{ c }}" href="{{ "/" | append: c | append: "/" | relative_url }}">
+                <span class="cat-num">0{{ forloop.index }}</span>
+                <span class="cat-icon">{{ site.category_icons[c] }}</span>
+                <h3>{{ site.category_names[c] }}</h3>
+                <p>{{ site.category_desc[c] }}</p>
+                <span class="cat-count">{{ cposts.size | default: 0 }} posts</span>
+                <span class="cat-enter">Enter →</span>
+            </a>
+        {% endfor %}
+    </div>
 </section>

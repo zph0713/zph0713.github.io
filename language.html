@@ -1,24 +1,24 @@
 ---
 layout: default
-title: Economy & Current Events
-permalink: /economy/
+title: Language Learning
+permalink: /language/
 ---
 <div class="page-head">
     <div class="container reveal">
-        <span class="hero-badge">{{ site.category_icons.economy }} {{ site.category_names.economy }}</span>
-        <h1>Economy &amp; Current Events</h1>
-        <p>{{ site.category_desc.economy }}</p>
+        <span class="hero-badge">{{ site.category_icons.language }} {{ site.category_names.language }}</span>
+        <h1>Language Learning</h1>
+        <p>{{ site.category_desc.language }}</p>
     </div>
 </div>
 
 <section class="container page-body reveal">
-    {% assign posts = site.categories.economy %}
+    {% assign posts = site.categories.language %}
     {% if posts %}{% assign posts = posts | sort: 'date' | reverse %}{% endif %}
     {% if posts.size > 0 %}
         <div class="post-list">
             {% for post in posts %}
                 <a class="post-row" href="{{ post.url | relative_url }}">
-                    <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                    <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
                     <span class="post-title">{{ post.title }}</span>
                     <span class="post-arrow">→</span>
                 </a>
