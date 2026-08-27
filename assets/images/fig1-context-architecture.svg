@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6b8c"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: Identity -->
+  <rect x="60" y="30" width="520" height="76" rx="10" fill="#eef2fb" stroke="#b9c6e2"/>
+  <text x="82" y="58" font-size="17" font-weight="bold" fill="#1f2a3d">1 · Identity layer (permanent)</text>
+  <text x="82" y="82" font-size="13.5" fill="#5b6b8c">role definition · code of conduct · long-term memory</text>
+
+  <!-- Layer 2: Knowledge -->
+  <rect x="60" y="122" width="520" height="76" rx="10" fill="#e6ecf9" stroke="#b9c6e2"/>
+  <text x="82" y="150" font-size="17" font-weight="bold" fill="#1f2a3d">2 · Knowledge layer (semi-permanent)</text>
+  <text x="82" y="174" font-size="13.5" fill="#5b6b8c">business knowledge · lessons written back after every job</text>
+
+  <!-- Layer 3: Session -->
+  <rect x="60" y="214" width="520" height="76" rx="10" fill="#dde7f7" stroke="#b9c6e2"/>
+  <text x="82" y="242" font-size="17" font-weight="bold" fill="#1f2a3d">3 · Session layer (per task)</text>
+  <text x="82" y="266" font-size="13.5" fill="#5b6b8c">one clean session per work order — discarded on completion</text>
+
+  <!-- Layer 4: Exchange -->
+  <rect x="60" y="306" width="520" height="76" rx="10" fill="#d3dff4" stroke="#b9c6e2"/>
+  <text x="82" y="334" font-size="17" font-weight="bold" fill="#1f2a3d">4 · Exchange layer (minimal interface)</text>
+  <text x="82" y="358" font-size="13.5" fill="#5b6b8c">work orders · reports · decision records — the only channel between roles</text>
+
+  <!-- Write-back loop: session -> knowledge -->
+  <path d="M 580 270 C 680 270, 680 160, 585 160" fill="none" stroke="#5b6b8c" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="596" y="222" font-size="12.5" fill="#5b6b8c" transform="rotate(90 596 222)">lessons</text>
+
+  <!-- Isolation boundary note -->
+  <rect x="44" y="14" width="552" height="384" rx="14" fill="none" stroke="#93a5c8" stroke-dasharray="6 5"/>
+  <text x="60" y="422" font-size="13" fill="#93a5c8" font-style="italic">isolation boundary = responsibility boundary = visibility boundary</text>
+</svg>

@@ -3,43 +3,30 @@ layout: post
 title: "The One-Person Company: An Operating System for AI Employees"
 date: 2026-08-27
 categories: [tech]
+style: paper
 tags: [ai, ai-agents, one-person-company, orchestration]
-description: "AI agents can execute tasks today, but they can't run a company. The missing layer isn't intelligence — it's an operating system: work orders, role isolation, model tiering, and a place for the human on the assembly line."
+description: "A design study of the operating system layer between AI workers: work-order protocols, layered context isolation, model tiering, and the place of the human on the assembly line."
 ---
 
-We are entering an era where a single person can run a company. Not a side hustle. Not a freelancing brand. A *company* — with departments, workflows, quality control, and an operating rhythm.
+<div class="abstract" markdown="1">
+**Abstract.** Large language model (LLM) agents can execute tasks, but they cannot yet run an organization. Multi-agent frameworks demonstrate that roles, workflows, and quality control can be simulated within a single project, yet no widely adopted convention exists for AI-to-AI coordination with persistent roles, organizational memory, and machine-checkable acceptance. Here we present a design study of an operating system for the one-person company (OPC) — a firm in which a single human founder orchestrates a staff of AI employees. We propose four interlocking mechanisms: (i) a structured work-order protocol through which roles exchange obligations and evidence rather than free-form conversation; (ii) a four-layer context architecture in which the isolation boundary equals the responsibility boundary, and sessions are treated as consumables while knowledge is accumulated as an asset; (iii) model tiering in which token economics assign heterogeneous models to planning, development, execution, and verification seats, with cross-vendor verification as a defence against correlated hallucination; and (iv) an explicit place for the human as a node on the assembly line, reachable through a *blocked_on_human* work-order state. We argue that the OPC does not replace industries but unlocks supply — business shapes previously too heavy for one person — and that its organizational pattern is self-similar: validated once in a three-role studio, then replicated into departments with the founder's role rising one level per replication.
+</div>
 
-The usual story goes: AI will replace employees, and a lone founder will do the work of ten. I think that story is wrong in an important way. It asks whether AI can do *tasks*, which it can. The real question is whether AI can run an *organization*, which it cannot — yet. The gap is not intelligence. The gap is that nobody has built the operating system between AI workers.
+## Introduction
 
-What follows is a design sketch of that operating system. It borrows from software engineering, from organizational theory, and from the uncomfortable observation that companies, as we know them, are optimized for human weaknesses — and AI has different weaknesses entirely.
+LLM-based agents have progressed from single-purpose assistants to cooperative systems. Surveys of the field document rapid growth in agent profiling, inter-agent communication, and capacity-growth mechanisms<sup>1</sup>. In software engineering, ChatDev demonstrated that specialized agents playing social roles — analysts, programmers, testers — can complete a development life cycle through structured dialogue<sup>2</sup>, and MetaGPT encoded standard operating procedures (SOPs) into prompt sequences, treating multi-agent collaboration as an assembly line of role-specific artifacts<sup>3</sup>. These systems establish an important precedent: with the right scaffolding, a group of LLM agents can behave like a functioning team.
 
-## Organizations are designed for human limits
+Yet a team is not a company. The frameworks above are *project-scoped*: they decompose one task, execute it, and dissolve. A company is something else. It persists across projects. It holds roles that accumulate experience, boundaries that constrain information flow, and processes — budgets, acceptance, escalation — that outlive any single job. The question we address here is not whether AI can perform tasks, which is settled, but whether AI can run an organization, which is open.
 
-Why do companies look the way they do? Why departments, job titles, approval chains, and handoff documents?
+We approach the question through an observation borrowed from institutional economics. Coase asked why firms exist at all, and answered that they economize on the transaction costs of coordination<sup>4</sup>. We invert the lens: human firms are *shaped by human constraints* — limited communication bandwidth, unreliable memory, opaque failure. AI employees have different constraints: a finite context window, confident hallucination, and correlated blind spots across models of the same family. A company designed for AI should therefore not imitate the human org chart; it should be engineered against the weaknesses AI actually has. Existing frameworks provide conversation mechanisms<sup>5</sup>, and practitioners increasingly advocate simple, composable patterns over complex scaffolding<sup>6</sup>, but neither supplies the organizational layer — the equivalent of a corporate email system with enforceable semantics.
 
-Because humans have three hard constraints:
+Here we propose such a layer. We describe a work-order protocol for AI-to-AI delegation, a layered context-isolation architecture, a model-tiering discipline, and a defined position for the human within the flow. We then derive the business-selection criteria that make an OPC viable and show that the pattern is self-similar across scales. This is a design position paper: the mechanisms are grounded in observed failure modes of deployed agent systems, but their assembly into a full "company" has not yet been validated longitudinally, which we take up in the Discussion.
 
-1. **Limited communication bandwidth.** You can't brief fifty people in a morning. So we invented layers: executives, managers, individual contributors. Hierarchy exists to compress information as it flows up and to decompose it as it flows down.
-2. **Unreliable memory.** People forget what was agreed, so we invented process documents, meeting minutes, and "as per my last email."
-3. **Opaque failure.** When something breaks, it's hard to know who decided what. So we invented job responsibility — someone *owns* the outcome, and accountability is a forcing function.
+## Results
 
-Now look at an AI agent through this lens:
+### A work-order protocol for inter-agent coordination
 
-- It has near-unlimited communication bandwidth, but a **finite context window**. Every conversation it carries is a liability: too much context and it starts mixing things up — the AI equivalent of a manager who has been in too many meetings and can no longer tell which project is which.
-- Its memory is perfect for retrieval but prone to **hallucination** — confident, plausible, wrong.
-- Its failures are perfectly auditable, but models from the same family tend to **share the same blind spots**. An AI developer and an AI reviewer powered by the same model will often miss the same bug, twice, with confidence.
-
-So the design problem is not "how do we make AI fit a human company." It is: **how do we design a company for the weaknesses AI actually has?** Copying the human org chart — an AI accountant, an AI HR, an AI developer — is a reasonable first instinct, but each role must earn its place by owning a distinct context domain, a distinct permission boundary, and a distinct knowledge base. If two roles share the same tools and the same context, splitting them is theater.
-
-## The missing layer is protocol, not intelligence
-
-Today's agent platforms do an excellent job of human-to-AI delegation: you describe a task, an agent executes it, you review the result. What none of them do natively is AI-to-AI delegation with persistent roles. The moment you want a planning agent to hand work to a development agent, and a QA agent to verify it, and an ops agent to ship it — you, the human, become the message router. You copy-paste between chat windows. You are the integration layer.
-
-This is not because models can't understand each other. A model can perfectly well read "deploy this service" written by another model. What's missing is the **exchange format** — the thing that lets messages carry obligations, acceptance criteria, and evidence instead of just prose.
-
-Think of TCP/IP. Before it, two machines could talk to each other; they just couldn't reliably *network*. The protocol turned ad-hoc communication into an infrastructure. AI employees need the same thing: a **work order schema** — the corporate email system, formalized.
-
-Here is a minimal one:
+The central gap in AI-to-AI collaboration is not intelligence but an exchange format — a convention that lets one role transmit obligations, acceptance criteria, and evidence to another. Before TCP/IP, two machines could converse; what they could not do was *network*. The work order is the equivalent primitive for AI employees: the corporate memo, formalized. The following minimal schema defines it.
 
 ```yaml
 id: 081
@@ -57,91 +44,110 @@ inputs:
 constraints:
   - no new gem dependencies
 role: dev
-model_tier: std        # decided by the planning agent, priced per token
+model_tier: std        # decided by the planning role, priced per token
 priority: P1
-status: open           # open → claimed → in_progress → blocked_on_human → done
+status: open
 budget: 500k tokens    # over budget = escalate, don't improvise
 ```
 
-Two fields do the heavy lifting: **`acceptance`** and the evidence that comes back with the finished report. An AI company can only run autonomously to the extent that acceptance criteria are machine-checkable — a shell command that exits zero, a string that greps clean, a metric that clears a threshold. "Looks good to me" is not an acceptance criterion; it is how human companies accumulate debt. Every `acceptance` line should be translatable into a script, because AI-to-AI acceptance is ultimately *executed*, not felt.
+Two fields carry the system. **Acceptance criteria** must be machine-checkable: a command that exits zero, a string that greps clean, a metric that clears a threshold. "Looks good to me" is how human organizations accumulate debt; an AI company that admits it cannot close the loop, because AI-to-AI acceptance is ultimately *executed*, not felt. The companion field is **evidence**: the finished report must attach verification output — test results, diffs, logs — against which the accepting role ticks each criterion. Acceptance and evidence together form the audit trail that makes every decision replayable.
 
-Notice what's absent: conversation. Roles exchange **work orders, not thought processes**. The planning agent doesn't share its reasoning trail with the development agent; it shares the conclusion, the constraints, and the definition of done. This is the single most effective defense against context pollution — the failure mode where one role's half-baked ideas leak into another role's working memory. Companies already know this. Meetings are for exploring; the memo is for committing. The AI equivalent: sessions are for thinking, work orders are for committing.
+Equally important is what work orders deliberately exclude: conversation. Roles exchange conclusions, constraints, and definitions of done — not their reasoning trails. This is the single most effective defence against context pollution, the failure mode in which one role's half-baked ideas leak into another's working memory. The human analogue is familiar: meetings are for exploring; the memo is for committing.
 
-Orders fall into five types — `build` (create something new), `operate` (keep something running), `analyze` (turn information into judgment), `improve` (fix and iterate), and `govern` (budget, audit, exceptions). The last one never fully belongs to AI. We'll come back to why.
+Orders fall into five types — *build* (create new assets), *operate* (keep them running), *analyze* (turn information into judgment), *improve* (fix and iterate), and *govern* (budget, audit, exceptions). Three triggers inject orders into the system: the founder's goals, decomposed by a planning role into a tree; schedules (patrols, reports); and events (CI failures, market movements, user feedback).
 
-## Context isolation: the four-layer architecture
+### Layered context isolation
 
-If work orders are the plumbing, context isolation is the floor plan. The rule that makes it all coherent:
+If the work order is the plumbing, context isolation is the floor plan. The governing rule:
 
-> **The isolation boundary is the responsibility boundary is the visibility boundary.**
-> A role's context should be the smallest information set required to do its job.
+> The isolation boundary is the responsibility boundary is the visibility boundary. A role's context should be the smallest information set required to do its job.
 
-This is the principle of least privilege, applied to memory. Isolation is not just about preventing contamination — it's access control. The finance role's sessions contain sensitive numbers; the development role should never carry them, exactly as in a physical office where one badge doesn't open every door.
+This is least-privilege applied to memory. It matters for contamination, but also for access control: the finance role's sessions contain sensitive numbers that the development role should never carry, exactly as a physical badge opens one door and not another. The architecture has four layers (**Fig. 1**).
 
-Four layers do the job:
+<figure class="figure">
+<img src="/assets/images/fig1-context-architecture.svg" alt="Four-layer context architecture for AI employees" loading="lazy">
+<figcaption class="figcaption"><b>Fig. 1 | The four-layer context architecture.</b> Identity and knowledge layers persist; each work order runs in a fresh session injected with only the relevant slices of layers 1 and 2 plus the order itself; the exchange layer is the only channel between roles. The write-back loop returns lessons from finished sessions to the knowledge layer, making sessions consumable and knowledge an asset.</figcaption>
+</figure>
 
-1. **Identity layer (permanent).** Who the employee is: role definition, code of conduct, long-term memory. The AI equivalent of a person's contract and instincts.
-2. **Knowledge layer (semi-permanent).** The role's business knowledge, updated after every completed job. The employee's experience.
-3. **Session layer (per task).** Each work order runs in a clean session, injected with only the relevant slices of layers 1 and 2, plus the order itself. The employee's workday on one case.
-4. **Exchange layer (minimal interface).** Work orders, reports, decision records. Structured, checkable, read-only references. The company's mail system.
+The critical principle follows: **sessions are consumables; knowledge is an asset.** After a job finishes, the session is discarded, but its lessons — pitfalls hit, patterns found, rules revised — are written back to the knowledge layer. This loop is how an AI employee grows, and it makes isolation affordable: context can be burned freely when everything worth keeping is extracted on the way out. The motivation is empirical: long-context models demonstrably fail to use information buried in the middle of their input<sup>7</sup>, so an employee that carries ever-growing raw history is not accumulating wisdom but diluting it.
 
-The critical principle: **sessions are consumables; knowledge is an asset.** After a job finishes, the session is discarded — but the *lessons* (pitfalls hit, patterns found, rules revised) are written back to the knowledge layer. Human conversations aren't archived either; what gets archived is what they concluded. This loop — session → knowledge → next session — is how an AI employee grows. It also makes isolation affordable: you can afford to burn context freely when everything worth keeping is extracted on the way out.
+Isolation pays three dividends. **Auditability:** every role's work is a self-contained volume; failures replay exactly who judged what. **Locatability:** errors map to a role and a step, not a fog. **Replaceability:** a hallucination-prone employee can be swapped out — identity, knowledge base, and all — with zero disruption to the rest of the firm.
 
-And isolation earns its keep in three dividends: **auditability** (every role's work is a self-contained volume; when something fails, you can replay exactly who judged what), **locatability** (failures map to a role and a step, not a fog), and **replaceability** (a hallucination-prone employee can be swapped out — profile, knowledge base, and all — with zero disruption to the rest of the company).
+### Model tiering and heterogeneous verification
 
-## Model tiering: the right model for the right seat
+AI employees should not all run on the same model, for the same reason a firm does not pay senior rates to everyone. Token economics force a tiering (**Table 1**).
 
-AI employees will not all run on the same model, for the same reason a company doesn't pay senior-engineer rates to everyone. Token economics force a tiering:
-
-| Tier | Typical work | Model class | Why |
+| Tier | Typical work | Model class | Rationale |
 |---|---|---|---|
 | Planning | decomposing goals, designing, accepting work | strongest available | decisions are the most expensive thing to get wrong |
 | Development | core implementation | strong | quality here determines rework everywhere else |
 | Execution | running scripts, log analysis, patrol summaries | cheap / local models | highest volume, mechanically checkable, cheap to fail |
 | Verification | acceptance, testing, cross-review | **different vendor** | the goal is heterogeneity, not strength |
 
-The verification tier deserves emphasis: the requirement is *different*, not *better*. Hallucination defenses fail not because models aren't smart enough but because they share blind spots. An acceptance check performed by a model from another family turns a correlated error into an independent one — three models from three vendors rarely hallucinate the same mistake. Using different models per role is therefore not just cost optimization; it is **risk control**.
+**Table 1. Model tiers.** Roles are assigned to model classes by decision cost and volume; the verification tier's requirement is cross-vendor heterogeneity.
 
-And make the cost visible. Every work order carries a token budget, and every completed order books its actual spend. The company then has something startling: real financials. Each role has a payroll. Cost overruns become anomaly signals that trigger escalation instead of silent waste. A founder of an AI company should read a token bill the way a CEO reads a P&L — because it *is* one.
+The verification tier deserves emphasis: its requirement is *different*, not *better*. Hallucination is a well-documented property of current LLMs<sup>8</sup>, and the relevant failure mode for an AI firm is not isolated error but *correlated* error — a developer and a reviewer powered by the same model family sharing the same blind spots, missing the same bug twice, with confidence. Acceptance checks performed by a model from another vendor turn correlated errors into independent ones. Model assignment per role is therefore not merely cost optimization; it is risk control.
 
-## The human is a node on the assembly line
+Finally, make the cost visible. Every order carries a token budget; every completed order books its actual spend. The firm then has real financials: each role draws a measurable payroll, and cost overruns surface as anomaly signals that trigger escalation rather than silent waste. A founder should read the token bill the way a CEO reads a profit-and-loss statement — because it is one.
 
-Here is where the popular picture of the AI company goes wrong. It imagines the human as a supervisor standing outside the machine, watching. The more useful image: **the human is a node on the assembly line** — a heterogeneous one, yes, but part of the flow.
+### The human as a node on the assembly line
 
-Some steps genuinely require a body: signing a paper, receiving a shipment, entering a bank branch, being present at a meeting. Earlier frameworks treated this as disqualifying — "this business can't be automated because step 7 is physical." That's the wrong conclusion. A physical step doesn't break the pipeline; it *pauses* it. The work order enters a `blocked_on_human` state, waits for the human to perform the minimal physical act, receives the evidence back, and the AI flow resumes. The human's time is not consumed by context-switching into the whole project — just by the ten-minute errand.
+The popular image of the AI company places the human outside the machine as a supervisor. The more useful image is different: the human is a node *on* the assembly line — heterogeneous, but part of the flow. Some steps genuinely require a body: signing a paper, receiving a shipment, visiting a bank, being present at a meeting. Earlier framings treated this as disqualifying — "the business cannot be automated because step seven is physical." That is the wrong conclusion. A physical step does not break the pipeline; it pauses it (**Fig. 2**).
 
-This reframing matters because a human's time is expensive in **cognition**, not in execution. Packing a box doesn't exhaust anyone's brain; it exhausts their presence. What kills solo founders is never the ten-minute task — it's the hundred ten-minute tasks, each requiring a mental reload. An AI company absorbs all the cognition and hands the human only the moments that require a physical body. The value boundary of the one-person company is therefore not "what AI can do" but **how cheaply a human can bridge what AI cannot**.
+<figure class="figure">
+<img src="/assets/images/fig2-order-state-machine.svg" alt="Work-order state machine with the blocked_on_human state" loading="lazy">
+<figcaption class="figcaption"><b>Fig. 2 | Work-order state machine.</b> Orders flow open → claimed → in_progress → done. A physical step pauses the order in *blocked_on_human*; when the human returns evidence, the AI flow resumes. Failed acceptance returns the order for rework.</figcaption>
+</figure>
 
-## Start where the loop is broken
+The reframing matters because a human's time is expensive in *cognition*, not in execution. Packing a box does not exhaust anyone's brain; it exhausts their presence. What kills solo founders is rarely the ten-minute task — it is the hundred ten-minute tasks, each demanding a mental reload of project state. An AI firm absorbs the cognition and hands the human only the moments that require a body. The value boundary of the OPC is therefore not "what AI can do" but how cheaply a human can bridge what AI cannot.
 
-Solo projects rarely die of failed execution. They die of a broken loop:
+One order type never leaves human hands: *govern*. Budgets, releases, and commitments to the outside world can be drafted by AI, but a firm without a human answerable for its promises is not a firm anyone can do business with. The founder keeps the gate — the cheapest job in the building, and the only one that cannot be delegated.
+
+### Selecting businesses where the loop closes
+
+Solo projects rarely die of failed execution; they die of a broken loop:
 
 ```
 produce → distribute → convert → deliver → repeat
 ```
 
-Technical founders over-invest in the first stage and starve the rest. The product exists; nobody knows; nobody pays; the project quietly dies. The four starving stages — getting attention, converting it, serving customers, learning from data — happen to be highly digital, highly templateable work. Exactly the work AI employees are good at.
+Technical founders over-invest in the first stage and starve the rest: the product exists, nobody knows, nobody pays. The starving stages — attention, conversion, service, learning from data — are highly digital and templateable, which is precisely the work AI employees are suited to. The first strategic decision of an OPC is therefore not the org chart but the business: choose one whose loop can close. Four criteria follow from the mechanisms above: end-to-end digital (every stage within reach of an agent), machine-checkable deliverables (acceptance can be a script), reversible mistakes (no irreversible legal or physical consequences without a human gate), and knowledge-intensive rather than relationship-intensive. Micro-SaaS, digital content operations, data services, and automated growth operations satisfy these criteria.
 
-So the first strategic decision of a one-person company is not the org chart. It's choosing a business where the loop can close: **end-to-end digital, machine-checkable deliverables, reversible mistakes, knowledge-intensive rather than relationship-intensive**. Micro-SaaS, digital content operations, data services, automated growth operations. Not because AI can't do other things, but because these are the businesses where acceptance can be a script and the human bridge is short.
+Note what this framing does to the automation debate: the OPC does not destroy industries. It unlocks supply — business shapes that were previously too heavy for one person become viable. The market gets more, smaller, sharper companies.
 
-And note what this framing does to the "AI replaces workers" debate: the one-person company doesn't destroy industries. It **unlocks supply** — business shapes that were previously too heavy for one person (small software companies, niche content networks, independent data services) become viable. The market gets more, smaller, sharper companies.
+### The company is a fractal
 
-## The company is a fractal
+The final property of the design is its self-similarity (**Fig. 3**). The whole company is a founder plus department-manager AIs; each department is a manager AI plus worker AIs; each project is a planning AI plus execution AIs. Three levels, one pattern: one orchestrator, several protocol-bound executors.
 
-Here is the most elegant property of the whole design: the one-person company is **self-similar**.
+<figure class="figure">
+<img src="/assets/images/fig3-fractal-company.svg" alt="Self-similar structure of the one-person company" loading="lazy">
+<figcaption class="figcaption"><b>Fig. 3 | The company is a fractal.</b> Company, department, and project levels share one pattern — an orchestrator plus protocol-bound executors — so a validated studio replicates into departments without redesign, and the founder's role rises one level per replication.</figcaption>
+</figure>
 
-- The whole company: you, plus department-manager AIs.
-- Each department: a manager AI, plus worker AIs.
-- Each project: a planning AI, plus execution AIs.
+A studio that runs smoothly does not need redesigning to become a company; it needs copying. The work-order schema, reporting templates, and acceptance scripts — validated once in a three-role studio — replicate into a finance department, a content department, an operations department, with only knowledge layers and skill sets swapped. And the founder's role rises with each replication: first the only executor and orchestrator, then the orchestrator alone, then the person who appoints orchestrators and approves budgets. The OPC grows not by hiring but by replicating a validated pattern.
 
-Three levels, one pattern: **one orchestrator, several protocol-bound executors.** A studio that runs smoothly doesn't need redesigning to become a company — it needs *copying*. The work-order schema, the reporting templates, the acceptance scripts: validated once in a three-role studio, then replicated into a finance department, a content department, an operations department, with only the knowledge layers and skill sets swapped.
+## Discussion
 
-And the human's role rises with each replication. First you are the only executor *and* the orchestrator. Then just the orchestrator. Then the person who appoints orchestrators and approves budgets. Each copy of the pattern moves you one level up — which is the real growth story of the one-person company. You don't grow by hiring; you grow by **replicating a validated pattern**.
+**Relation to existing work.** ChatDev<sup>2</sup> and MetaGPT<sup>3</sup> demonstrate role-play within a single project; the present design extends coordination to the organizational level — persistent roles, cross-project memory, and governance that survive any one job. AutoGen<sup>5</sup> supplies flexible conversation topologies, and role-based frameworks such as CrewAI<sup>9</sup> add orchestration primitives; both provide *mechanisms*, whereas the work-order schema proposed here provides *semantics* — obligations, acceptance, and evidence with defined states. Anthropic's guidance that effective agents prefer simple composable patterns<sup>6</sup> is consistent with our use of files, conventions, and a version-controlled inbox rather than a monolithic runtime.
 
-One thing never replicates: `govern`. Budgets, releases, commitments to the outside world. AI can draft all of it, but a human approves. Not because the AI isn't capable — because a company without a human answerable for its promises is not a company anyone can do business with. The founder keeps the gate. It's the cheapest job in the building and the only one that cannot be delegated.
+**Limitations.** This is a design position paper, not an empirical study; the mechanisms have been validated individually — acceptance testing, context isolation, cross-model verification — but the assembled system has not been measured longitudinally. The claim that cross-vendor verification decorrelates errors is a heuristic: model families share training-data ancestry, and blind spots can remain correlated across vendors. Token-cost accounting has no standard unit of comparison across providers, so "payroll" figures are indicative rather than auditable.
 
----
+**Future work.** Three directions follow. First, an open-source reference implementation of the work-order protocol — a minimal git-based inbox with a schema validator — would let practitioners converge on a shared convention before vendors standardize one. Second, the *blocked_on_human* state deserves a user-study: how cheaply can a non-technical founder bridge physical steps without losing flow state? Third, governance: as govern-type orders accumulate, decision records become a corpus for studying where human gates are actually necessary versus ceremonial.
 
-The tooling for this already exists in pieces: agent platforms with persistent roles and memory, schedulers that can patrol on a clock, delegation primitives, even local models cheap enough to serve as interns. What's missing is the layer between them — the work-order protocol, the isolation architecture, the tiering discipline, and the explicit place of the human in the loop. That layer is buildable today, with files and conventions and a version-controlled inbox, before any vendor ships it as a product.
+## Methods
 
-The one-person company is coming. The interesting question is not whether AI can do the work. It's who builds the operating system first.
+This design study was developed through (i) a literature review of LLM-based multi-agent systems and organizational economics; (ii) iterative prototyping of AI-employee workflows on general-purpose agent platforms supporting persistent roles, schedulers, and delegation primitives, with structured work orders exchanged through a version-controlled repository; and (iii) analogy-based reasoning from software engineering (protocols, least privilege) and organizational theory (transaction costs, management by exception). Failure modes observed during prototyping — context pollution between roles, acceptance judged by prose rather than evidence, and budget-blind execution — motivated the mechanisms presented in the Results. Figures were produced as hand-authored vector graphics; no generative model was used for citation synthesis, and all references were verified against primary sources.
+
+<div class="references" markdown="1">
+## References
+
+1. Guo, T. *et al.* Large language model based multi-agents: A survey of progress and challenges. Preprint at arXiv:2402.01680 (2024).
+2. Qian, C. *et al.* ChatDev: Communicative agents for software development. In *Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics*, 15174–15186 (2024).
+3. Hong, S. *et al.* MetaGPT: Meta programming for a multi-agent collaborative framework. In *Proceedings of the Twelfth International Conference on Learning Representations* (2024).
+4. Coase, R. H. The nature of the firm. *Economica* **4**, 386–405 (1937).
+5. Wu, Q. *et al.* AutoGen: Enabling next-gen LLM applications via multi-agent conversation. Preprint at arXiv:2308.08155 (2023).
+6. Schluntz, E. & Zhang, B. Building effective agents. *Anthropic Engineering Blog* (2024).
+7. Liu, N. F. *et al.* Lost in the middle: How language models use long contexts. Preprint at arXiv:2307.03172 (2023).
+8. Huang, L. *et al.* A survey on hallucination in large language models: Principles, taxonomy, challenges, and open questions. Preprint at arXiv:2311.05232 (2023).
+9. CrewAI. crewAIInc/crewAI: Framework for orchestrating role-playing, autonomous AI agents. GitHub, <https://github.com/crewAIInc/crewAI> (2024).
+</div>

@@ -542,3 +542,67 @@ img { max-width: 100%; }
   .about-card { padding: 36px 24px; }
   .site-footer { padding: 36px 0; }
 }
+
+/* ── 论文风（Nature-like，frontmatter: style: paper）── */
+.post-page.paper { max-width: 880px; }
+.post-page.paper .post-header h1 {
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-weight: 700; font-size: 2rem; line-height: 1.35;
+}
+.post-page.paper .post-content {
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: 1.01rem; line-height: 1.78; color: #233047;
+  text-align: justify;
+}
+.post-page.paper .post-content h2 {
+  font-size: 1.28rem; border-left: none; padding-left: 0;
+  margin-top: 2.2em;
+}
+.post-page.paper .post-content h3 { font-size: 1.12rem; }
+.post-page.paper .post-content a { color: #2456a6; }
+.post-page.paper .post-content code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  background: #f2f5fa; color: #3b4a6b;
+}
+/* 摘要块 */
+.post-page.paper .abstract {
+  font-size: 1.04rem; line-height: 1.7;
+  padding: 0 0 1.2em; margin: 1.2em 0 1.6em;
+  border-bottom: 1px solid var(--line);
+}
+.post-page.paper .abstract > strong { font-variant: small-caps; letter-spacing: 0.04em; }
+/* 图表：跨双栏 */
+.post-page.paper .figure { margin: 2em 0; text-align: center; }
+.post-page.paper .figure img { max-width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+.post-page.paper .figcaption {
+  font-size: 0.86rem; color: var(--ink-2); text-align: left;
+  margin-top: 0.6em; line-height: 1.55;
+}
+/* 参考文献 */
+.post-page.paper .references { font-size: 0.88rem; margin-top: 2.6em; }
+.post-page.paper .references h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.4em; }
+.post-page.paper .references ol { padding-left: 1.5em; }
+.post-page.paper .references li { margin: 0.5em 0; line-height: 1.6; text-align: left; }
+/* 正文上标引用 */
+.post-page.paper sup { font-size: 0.72em; }
+/* 表格跨双栏 */
+.post-page.paper .post-content table {
+  margin: 1.6em 0; border-collapse: collapse; width: 100%;
+  font-size: 0.9rem;
+}
+.post-page.paper .post-content th,
+.post-page.paper .post-content td {
+  border: 1px solid var(--line); padding: 7px 11px; text-align: left;
+}
+.post-page.paper .post-content th { background: #f2f5fa; }
+.post-page.paper .post-content tr:nth-child(even) td { background: #fafbfd; }
+/* 桌面双栏（图表/表格/代码跨栏） */
+@media (min-width: 1024px) {
+  .post-page.paper .post-content { column-count: 2; column-gap: 46px; }
+  .post-page.paper .post-content pre,
+  .post-page.paper .post-content table,
+  .post-page.paper .post-content .figure,
+  .post-page.paper .post-content .abstract { column-span: all; }
+  .post-page.paper .post-content .figure { margin: 1.6em 0; }
+  .post-page.paper .references { column-count: 1; }
+}

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post-page container reveal">
+<article class="post-page container reveal{% if page.style == 'paper' %} paper{% endif %}">
     <header class="post-header">
         <div class="post-meta">
             {% assign cat = page.categories.first %}

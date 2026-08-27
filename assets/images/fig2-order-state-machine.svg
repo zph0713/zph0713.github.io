@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6b8c"/>
+    </marker>
+  </defs>
+
+  <!-- open -->
+  <rect x="30" y="80" width="150" height="56" rx="28" fill="#eef2fb" stroke="#7f96c4" stroke-width="1.6"/>
+  <text x="105" y="114" font-size="16" font-weight="bold" fill="#1f2a3d" text-anchor="middle">open</text>
+
+  <!-- claimed -->
+  <rect x="250" y="80" width="150" height="56" rx="28" fill="#e6ecf9" stroke="#7f96c4" stroke-width="1.6"/>
+  <text x="325" y="114" font-size="16" font-weight="bold" fill="#1f2a3d" text-anchor="middle">claimed</text>
+
+  <!-- in_progress -->
+  <rect x="470" y="80" width="170" height="56" rx="28" fill="#d3dff4" stroke="#7f96c4" stroke-width="1.6"/>
+  <text x="555" y="114" font-size="16" font-weight="bold" fill="#1f2a3d" text-anchor="middle">in_progress</text>
+
+  <!-- blocked_on_human -->
+  <rect x="470" y="180" width="170" height="46" rx="23" fill="#fdf6e3" stroke="#c9a94e" stroke-width="1.6"/>
+  <text x="555" y="209" font-size="14.5" font-weight="bold" fill="#7a6420" text-anchor="middle">blocked_on_human</text>
+
+  <!-- done -->
+  <rect x="690" y="80" width="80" height="56" rx="28" fill="#e8f5ec" stroke="#6fae85" stroke-width="1.6"/>
+  <text x="730" y="114" font-size="16" font-weight="bold" fill="#2e6b48" text-anchor="middle">done</text>
+
+  <!-- transitions -->
+  <line x1="180" y1="108" x2="246" y2="108" stroke="#5b6b8c" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="400" y1="108" x2="466" y2="108" stroke="#5b6b8c" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- in_progress -> done -->
+  <path d="M 640 108 C 666 108, 666 108, 686 108" fill="none" stroke="#5b6b8c" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="652" y="96" font-size="12" fill="#5b6b8c">accept</text>
+
+  <!-- in_progress <-> blocked_on_human -->
+  <line x1="555" y1="136" x2="555" y2="176" stroke="#5b6b8c" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="566" y="160" font-size="12" fill="#5b6b8c">physical step</text>
+  <path d="M 528 180 C 528 158, 520 158, 520 140" fill="none" stroke="#5b6b8c" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="492" y="162" font-size="12" fill="#5b6b8c">evidence back</text>
+
+  <!-- rework self-loop on in_progress -->
+  <path d="M 470 96 C 420 96, 420 50, 555 50 C 640 50, 640 76, 640 76" fill="none" stroke="#c96a6a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="474" y="64" font-size="12" fill="#c96a6a">rework — acceptance failed</text>
+
+  <text x="30" y="236" font-size="13" fill="#93a5c8" font-style="italic">work orders pause for a human, never terminate — the pipeline resumes when evidence returns</text>
+</svg>

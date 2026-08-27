@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="Georgia, 'Times New Roman', serif">
+  <!-- Company (outer) -->
+  <rect x="40" y="24" width="720" height="372" rx="16" fill="#f3f6fd" stroke="#7f96c4" stroke-width="1.8"/>
+  <text x="64" y="56" font-size="18" font-weight="bold" fill="#1f2a3d">Company</text>
+  <text x="64" y="78" font-size="13.5" fill="#5b6b8c">human founder · department-manager AIs</text>
+
+  <!-- Department (middle) -->
+  <rect x="110" y="106" width="580" height="252" rx="14" fill="#e9effb" stroke="#93a5c8" stroke-width="1.6"/>
+  <text x="134" y="136" font-size="16.5" font-weight="bold" fill="#1f2a3d">Department</text>
+  <text x="134" y="158" font-size="13" fill="#5b6b8c">manager AI · worker AIs</text>
+
+  <!-- Project (inner) -->
+  <rect x="190" y="192" width="420" height="128" rx="12" fill="#dde7f7" stroke="#93a5c8" stroke-width="1.5"/>
+  <text x="214" y="222" font-size="15.5" font-weight="bold" fill="#1f2a3d">Project</text>
+  <text x="214" y="244" font-size="13" fill="#5b6b8c">planning AI · execution AIs</text>
+  <text x="214" y="268" font-size="13" fill="#5b6b8c">work-order protocol</text>
+  <text x="214" y="290" font-size="13" fill="#5b6b8c">acceptance scripts · knowledge layers</text>
+
+  <!-- pattern note -->
+  <text x="110" y="390" font-size="13.5" font-style="italic" fill="#93a5c8">same pattern at every level: one orchestrator, several protocol-bound executors</text>
+</svg>
