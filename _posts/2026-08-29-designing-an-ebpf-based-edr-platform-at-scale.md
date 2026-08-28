@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Designing an eBPF-Based EDR Platform at Scale"
-date: 2026-08-29
+date: 2026-08-29 00:00:00 +0800
 categories: [tech]
 tags: [ebpf, security, edr, kubernetes, rust, kafka, architecture]
 description: "A reference architecture for large-scale host security: in-kernel filtering with libbpf, a Rust agent as the single enforcement point, versioned policy distribution, and a Kafka/Flink data plane built for 100k-node fleets."

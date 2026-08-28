@@ -9,6 +9,10 @@ tagline: "Code · Life · Economy · Language"
 baseurl: ""
 url: "https://zph0713.github.io"
 
+# GitHub Pages builds in UTC; without this, a post dated "today" in CST
+# is parsed as future-dated and silently skipped. Author dates are CST.
+timezone: Asia/Shanghai
+
 markdown: kramdown
 highlighter: rouge
 
