@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 780" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6b7a90"/>
+    </marker>
+    <marker id="arrow2" markerWidth="10" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M10,0 L0,4 L10,8 z" fill="#6b7a90"/>
+    </marker>
+  </defs>
+
+  <!-- Host / K8s Node -->
+  <rect x="40" y="36" width="580" height="420" rx="14" fill="#f4f8fd" stroke="#a9c7e8" stroke-width="1.5"/>
+  <text x="64" y="68" font-size="16" font-weight="bold" fill="#33507a">Host / K8s Node</text>
+
+  <!-- BPF programs box -->
+  <rect x="64" y="92" width="252" height="268" rx="10" fill="#ffffff" stroke="#5b8def" stroke-width="1.5"/>
+  <text x="80" y="120" font-size="14.5" font-weight="bold" fill="#2b5cad">C + libbpf BPF programs</text>
+  <line x1="80" y1="132" x2="300" y2="132" stroke="#dce7f5" stroke-width="1"/>
+  <g font-size="12.5" fill="#41566e">
+    <text x="80" y="158">&#9656; execve / fork / exit</text>
+    <text x="80" y="184">&#9656; openat / rename / unlink</text>
+    <text x="80" y="210">&#9656; connect4 / connect6</text>
+    <text x="80" y="236">&#9656; cgroup / netns context</text>
+    <text x="80" y="262">&#9656; in-kernel policy filter maps</text>
+    <text x="80" y="288">&#9656; bpf_lsm enforcement hooks</text>
+  </g>
+
+  <!-- ring buffer arrow -->
+  <line x1="316" y1="226" x2="388" y2="226" stroke="#6b7a90" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="352" y="214" font-size="12" fill="#5a6b82" text-anchor="middle">ring buffer</text>
+
+  <!-- Rust agent box -->
+  <rect x="390" y="92" width="206" height="268" rx="10" fill="#ffffff" stroke="#2aa198" stroke-width="1.5"/>
+  <text x="406" y="120" font-size="14.5" font-weight="bold" fill="#1d7a73">Rust EDR agent</text>
+  <line x1="406" y1="132" x2="580" y2="132" stroke="#d9efed" stroke-width="1"/>
+  <g font-size="12.5" fill="#41566e">
+    <text x="406" y="158">&#9656; BPF loader</text>
+    <text x="406" y="182">&#9656; event normalizer</text>
+    <text x="406" y="206">&#9656; container metadata cache</text>
+    <text x="406" y="230">&#9656; local policy compiler</text>
+    <text x="406" y="254">&#9656; Kafka producer</text>
+    <text x="406" y="278">&#9656; gRPC policy sync</text>
+    <text x="406" y="302">&#9656; metrics / health check</text>
+  </g>
+
+  <!-- enforcement strip -->
+  <rect x="64" y="384" width="532" height="52" rx="10" fill="#eef7f6" stroke="#2aa198" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="330" y="406" font-size="13" font-weight="bold" fill="#1d7a73" text-anchor="middle">In-kernel enforcement (bpf_lsm)</text>
+  <text x="330" y="425" font-size="12.5" fill="#41566e" text-anchor="middle">network block &#183; file / exec block &#183; process kill / audit</text>
+  <line x1="493" y1="360" x2="493" y2="382" stroke="#6b7a90" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Policy server -->
+  <rect x="700" y="100" width="240" height="160" rx="14" fill="#fff7ec" stroke="#e0a458" stroke-width="1.5"/>
+  <text x="720" y="130" font-size="15" font-weight="bold" fill="#9a6a1f">Policy server</text>
+  <line x1="720" y1="142" x2="920" y2="142" stroke="#f3e2c8" stroke-width="1"/>
+  <g font-size="12.5" fill="#6b5a3e">
+    <text x="720" y="168">&#9656; unified platform control</text>
+    <text x="720" y="194">&#9656; rule compilation &amp; distribution</text>
+    <text x="720" y="220">&#9656; fleet rollout &amp; consistency audit</text>
+  </g>
+
+  <!-- gRPC arrow (bidirectional) -->
+  <line x1="598" y1="180" x2="698" y2="180" stroke="#6b7a90" stroke-width="1.8" marker-start="url(#arrow2)" marker-end="url(#arrow)"/>
+  <text x="648" y="168" font-size="12" fill="#5a6b82" text-anchor="middle">gRPC policy sync</text>
+
+  <!-- Kafka -->
+  <rect x="200" y="560" width="300" height="150" rx="14" fill="#f3effc" stroke="#8b6fd8" stroke-width="1.5"/>
+  <text x="220" y="590" font-size="15" font-weight="bold" fill="#5d47a8">Kafka</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="12" fill="#5d47a8">
+    <text x="220" y="616">edr.events.process</text>
+    <text x="220" y="638">edr.events.file</text>
+    <text x="220" y="660">edr.events.network</text>
+    <text x="220" y="682">edr.events.policy / .agent</text>
+  </g>
+
+  <!-- node -> kafka arrow -->
+  <line x1="350" y1="456" x2="350" y2="558" stroke="#6b7a90" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="362" y="510" font-size="12" fill="#5a6b82">events, partitioned by node_id</text>
+
+  <!-- ES -->
+  <rect x="580" y="540" width="200" height="92" rx="12" fill="#ffffff" stroke="#9aa7b8" stroke-width="1.5"/>
+  <text x="600" y="570" font-size="14" font-weight="bold" fill="#3d4c63">Elasticsearch</text>
+  <text x="600" y="594" font-size="12.5" fill="#5a6b82">&#8594; traceability platform</text>
+
+  <!-- Flink -->
+  <rect x="580" y="656" width="200" height="92" rx="12" fill="#ffffff" stroke="#9aa7b8" stroke-width="1.5"/>
+  <text x="600" y="686" font-size="14" font-weight="bold" fill="#3d4c63">Flink</text>
+  <text x="600" y="710" font-size="12.5" fill="#5a6b82">&#8594; alert center (behavior chains)</text>
+
+  <!-- kafka -> ES / Flink -->
+  <line x1="500" y1="600" x2="578" y2="586" stroke="#6b7a90" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="500" y1="664" x2="578" y2="694" stroke="#6b7a90" stroke-width="1.8" marker-end="url(#arrow)"/>
+</svg>
