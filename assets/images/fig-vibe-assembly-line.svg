@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111b30"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9db1d8"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="799" height="429" rx="18" fill="url(#bg)" stroke="#223352" stroke-width="1"/>
+
+  <!-- header -->
+  <text x="40" y="38" font-size="12.5" font-weight="bold" letter-spacing="2.5" fill="#67e8f9">THE VIBE-CODING ASSEMBLY LINE</text>
+  <text x="760" y="38" font-size="12" font-style="italic" fill="#8fa3c8" text-anchor="end">four phases · one loop · brick by brick</text>
+
+  <!-- LEGO bricks (studs drawn first so the body hides their lower half) -->
+  <!-- Discover -->
+  <g>
+    <circle cx="76" cy="80" r="6" fill="#67e8f9" opacity="0.9"/><circle cx="118" cy="80" r="6" fill="#67e8f9" opacity="0.9"/>
+    <circle cx="160" cy="80" r="6" fill="#67e8f9" opacity="0.9"/><circle cx="202" cy="80" r="6" fill="#67e8f9" opacity="0.9"/>
+    <rect x="34" y="84" width="168" height="148" rx="12" fill="#152238" stroke="#22d3ee" stroke-opacity="0.65" stroke-width="1.6"/>
+    <text x="118" y="124" font-size="19" font-weight="bold" fill="#67e8f9" text-anchor="middle" letter-spacing="1">DISCOVER</text>
+    <text x="118" y="158" font-size="12" fill="#c9d4ea" text-anchor="middle">find the real pain</text>
+    <text x="118" y="181" font-size="12" fill="#c9d4ea" text-anchor="middle">let AI interview you</text>
+    <text x="118" y="206" font-size="12" fill="#67e8f9" text-anchor="middle" opacity="0.85">→ raw requirement cards</text>
+  </g>
+  <!-- Define -->
+  <g>
+    <circle cx="264" cy="80" r="6" fill="#a5b4fc" opacity="0.9"/><circle cx="306" cy="80" r="6" fill="#a5b4fc" opacity="0.9"/>
+    <circle cx="348" cy="80" r="6" fill="#a5b4fc" opacity="0.9"/><circle cx="390" cy="80" r="6" fill="#a5b4fc" opacity="0.9"/>
+    <rect x="222" y="84" width="168" height="148" rx="12" fill="#152238" stroke="#818cf8" stroke-opacity="0.65" stroke-width="1.6"/>
+    <text x="306" y="124" font-size="19" font-weight="bold" fill="#a5b4fc" text-anchor="middle" letter-spacing="1">DEFINE</text>
+    <text x="306" y="158" font-size="12" fill="#c9d4ea" text-anchor="middle">diverge, then prune</text>
+    <text x="306" y="181" font-size="12" fill="#c9d4ea" text-anchor="middle">choose the shape</text>
+    <text x="306" y="206" font-size="12" fill="#a5b4fc" text-anchor="middle" opacity="0.85">→ the one-page brief</text>
+  </g>
+  <!-- Build -->
+  <g>
+    <circle cx="452" cy="80" r="6" fill="#d8b4fe" opacity="0.9"/><circle cx="494" cy="80" r="6" fill="#d8b4fe" opacity="0.9"/>
+    <circle cx="536" cy="80" r="6" fill="#d8b4fe" opacity="0.9"/><circle cx="578" cy="80" r="6" fill="#d8b4fe" opacity="0.9"/>
+    <rect x="410" y="84" width="168" height="148" rx="12" fill="#152238" stroke="#a78bfa" stroke-opacity="0.65" stroke-width="1.6"/>
+    <text x="494" y="124" font-size="19" font-weight="bold" fill="#d8b4fe" text-anchor="middle" letter-spacing="1">BUILD</text>
+    <text x="494" y="158" font-size="12" fill="#c9d4ea" text-anchor="middle">one task at a time</text>
+    <text x="494" y="181" font-size="12" fill="#c9d4ea" text-anchor="middle">AI codes · you verify</text>
+    <text x="494" y="206" font-size="12" fill="#d8b4fe" text-anchor="middle" opacity="0.85">→ a running slice</text>
+  </g>
+  <!-- Harden -->
+  <g>
+    <circle cx="640" cy="80" r="6" fill="#6ee7b7" opacity="0.9"/><circle cx="682" cy="80" r="6" fill="#6ee7b7" opacity="0.9"/>
+    <circle cx="724" cy="80" r="6" fill="#6ee7b7" opacity="0.9"/><circle cx="766" cy="80" r="6" fill="#6ee7b7" opacity="0.9"/>
+    <rect x="598" y="84" width="168" height="148" rx="12" fill="#152238" stroke="#34d399" stroke-opacity="0.65" stroke-width="1.6"/>
+    <text x="682" y="124" font-size="19" font-weight="bold" fill="#6ee7b7" text-anchor="middle" letter-spacing="1">HARDEN</text>
+    <text x="682" y="158" font-size="12" fill="#c9d4ea" text-anchor="middle">use it for real</text>
+    <text x="682" y="181" font-size="12" fill="#c9d4ea" text-anchor="middle">fix · tune · refactor</text>
+    <text x="682" y="206" font-size="12" fill="#6ee7b7" text-anchor="middle" opacity="0.85">→ the next brick ships</text>
+  </g>
+
+  <!-- stage arrows -->
+  <line x1="205" y1="158" x2="218" y2="158" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="393" y1="158" x2="406" y2="158" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="581" y1="158" x2="594" y2="158" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+
+  <!-- conveyor belt -->
+  <line x1="50" y1="264" x2="750" y2="264" stroke="url(#band)" stroke-width="2.4" filter="url(#glow)"/>
+  <circle cx="118" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/><circle cx="205" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/>
+  <circle cx="292" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/><circle cx="379" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/>
+  <circle cx="466" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/><circle cx="553" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/>
+  <circle cx="640" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/><circle cx="705" cy="264" r="3.4" fill="#e8f6ff" opacity="0.9"/>
+  <circle cx="40" cy="264" r="10" fill="#0d1526" stroke="#5b6b8c" stroke-width="1.4"/><circle cx="40" cy="264" r="2.6" fill="#93a5c8"/>
+  <circle cx="760" cy="264" r="10" fill="#0d1526" stroke="#5b6b8c" stroke-width="1.4"/><circle cx="760" cy="264" r="2.6" fill="#93a5c8"/>
+
+  <!-- return loop -->
+  <path d="M 760 264 C 806 340, 750 378, 400 378 C 52 378, -4 342, 40 272" fill="none" stroke="#fb7185" stroke-width="2.2" filter="url(#glow)" marker-end="url(#arr)"/>
+  <text x="400" y="326" font-size="12.5" fill="#fda4af" text-anchor="middle">feedback loops back — every pass ships one verified brick</text>
+
+  <text x="400" y="414" font-size="11.5" font-style="italic" fill="#7f8fb3" text-anchor="middle">no stage waits on a human to type — every handoff is an artifact, every artifact is checkable</text>
+</svg>

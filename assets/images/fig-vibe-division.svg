@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 545" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111b30"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="799" height="544" rx="18" fill="url(#bg)" stroke="#223352" stroke-width="1"/>
+
+  <text x="40" y="36" font-size="16" font-weight="bold" fill="#ffffff">Who does what on the line</text>
+  <text x="760" y="36" font-size="12" font-style="italic" fill="#8fa3c8" text-anchor="end">judgment in, volume out</text>
+
+  <!-- column headers -->
+  <rect x="90" y="70" width="110" height="26" rx="13" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-opacity="0.7" stroke-width="1.2"/>
+  <text x="145" y="87" font-size="12.5" font-weight="bold" fill="#fcd34d" text-anchor="middle" letter-spacing="1.5">YOU</text>
+  <text x="400" y="87" font-size="11" fill="#64748b" text-anchor="middle" letter-spacing="2">HANDOFF ARTIFACT</text>
+  <rect x="590" y="70" width="120" height="26" rx="13" fill="#22d3ee" opacity="0.10" stroke="#22d3ee" stroke-opacity="0.6" stroke-width="1.2"/>
+  <text x="650" y="87" font-size="12.5" font-weight="bold" fill="#7dd3fc" text-anchor="middle" letter-spacing="1.5">AI</text>
+
+  <!-- lane guides -->
+  <line x1="265" y1="110" x2="265" y2="492" stroke="#243a5e" stroke-width="1" stroke-dasharray="2 4"/>
+  <line x1="505" y1="110" x2="505" y2="492" stroke="#243a5e" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <!-- 8 rows -->
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <!-- row 1 : Discover -->
+    <line x1="40" y1="120" x2="760" y2="120" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="136" font-size="10.5" fill="#f0c674" text-anchor="middle">lives the pain,</text>
+    <text x="145" y="152" font-size="10.5" fill="#f0c674" text-anchor="middle">answers honestly</text>
+    <rect x="310" y="129" width="180" height="28" rx="14" fill="#22d3ee" opacity="0.08" stroke="#22d3ee" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="147" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">01 · pain statement</text>
+    <text x="650" y="136" font-size="10.5" fill="#7dd3fc" text-anchor="middle">interrogates the idea,</text>
+    <text x="650" y="152" font-size="10.5" fill="#7dd3fc" text-anchor="middle">hunts the real need</text>
+
+    <!-- row 2 : Discover -->
+    <line x1="40" y1="166" x2="760" y2="166" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="182" font-size="10.5" fill="#f0c674" text-anchor="middle">supplies experience,</text>
+    <text x="145" y="198" font-size="10.5" fill="#f0c674" text-anchor="middle">vetoes invented needs</text>
+    <rect x="310" y="175" width="180" height="28" rx="14" fill="#22d3ee" opacity="0.08" stroke="#22d3ee" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="193" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">02 · raw backlog</text>
+    <text x="650" y="182" font-size="10.5" fill="#7dd3fc" text-anchor="middle">interviews you, drafts</text>
+    <text x="650" y="198" font-size="10.5" fill="#7dd3fc" text-anchor="middle">requirement cards</text>
+
+    <!-- row 3 : Define -->
+    <line x1="40" y1="212" x2="760" y2="212" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="228" font-size="10.5" fill="#f0c674" text-anchor="middle">stamps Must / Won't,</text>
+    <text x="145" y="244" font-size="10.5" fill="#f0c674" text-anchor="middle">writes the non-goals</text>
+    <rect x="310" y="221" width="180" height="28" rx="14" fill="#818cf8" opacity="0.08" stroke="#818cf8" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="239" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">03 · pruned backlog</text>
+    <text x="650" y="228" font-size="10.5" fill="#7dd3fc" text-anchor="middle">diverges, challenges</text>
+    <text x="650" y="244" font-size="10.5" fill="#7dd3fc" text-anchor="middle">weak priorities</text>
+
+    <!-- row 4 : Define -->
+    <line x1="40" y1="258" x2="760" y2="258" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="274" font-size="10.5" fill="#f0c674" text-anchor="middle">chooses the shape from</text>
+    <text x="145" y="290" font-size="10.5" fill="#f0c674" text-anchor="middle">real usage and discovery</text>
+    <rect x="310" y="267" width="180" height="28" rx="14" fill="#818cf8" opacity="0.08" stroke="#818cf8" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="285" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">04 · one-page brief</text>
+    <text x="650" y="274" font-size="10.5" fill="#7dd3fc" text-anchor="middle">prices every shape:</text>
+    <text x="650" y="290" font-size="10.5" fill="#7dd3fc" text-anchor="middle">cost · reach · upkeep</text>
+
+    <!-- row 5 : Define -->
+    <line x1="40" y1="304" x2="760" y2="304" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="320" font-size="10.5" fill="#f0c674" text-anchor="middle">approves the cut,</text>
+    <text x="145" y="336" font-size="10.5" fill="#f0c674" text-anchor="middle">keeps it verifiable</text>
+    <rect x="310" y="313" width="180" height="28" rx="14" fill="#a78bfa" opacity="0.08" stroke="#a78bfa" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="331" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">05 · task list</text>
+    <text x="650" y="320" font-size="10.5" fill="#7dd3fc" text-anchor="middle">slices the brief into</text>
+    <text x="650" y="336" font-size="10.5" fill="#7dd3fc" text-anchor="middle">machine-checkable tasks</text>
+
+    <!-- row 6 : Build -->
+    <line x1="40" y1="350" x2="760" y2="350" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="366" font-size="10.5" fill="#f0c674" text-anchor="middle">runs it, watches it,</text>
+    <text x="145" y="382" font-size="10.5" fill="#f0c674" text-anchor="middle">says next</text>
+    <rect x="310" y="359" width="180" height="28" rx="14" fill="#a78bfa" opacity="0.08" stroke="#a78bfa" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="377" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">06 · vertical slice</text>
+    <text x="650" y="366" font-size="10.5" fill="#7dd3fc" text-anchor="middle">codes task by task,</text>
+    <text x="650" y="382" font-size="10.5" fill="#7dd3fc" text-anchor="middle">fixes its own errors</text>
+
+    <!-- row 7 : Harden -->
+    <line x1="40" y1="396" x2="760" y2="396" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="412" font-size="10.5" fill="#f0c674" text-anchor="middle">uses it daily,</text>
+    <text x="145" y="428" font-size="10.5" fill="#f0c674" text-anchor="middle">accepts or rejects</text>
+    <rect x="310" y="405" width="180" height="28" rx="14" fill="#34d399" opacity="0.08" stroke="#34d399" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="423" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">07 · brick #n</text>
+    <text x="650" y="412" font-size="10.5" fill="#7dd3fc" text-anchor="middle">adds the next feature,</text>
+    <text x="650" y="428" font-size="10.5" fill="#7dd3fc" text-anchor="middle">runs regression</text>
+
+    <!-- row 8 : Harden -->
+    <line x1="40" y1="442" x2="760" y2="442" stroke="#223352" stroke-width="1"/>
+    <text x="145" y="458" font-size="10.5" fill="#f0c674" text-anchor="middle">approves what is</text>
+    <text x="145" y="474" font-size="10.5" fill="#f0c674" text-anchor="middle">worth fixing</text>
+    <rect x="310" y="451" width="180" height="28" rx="14" fill="#34d399" opacity="0.08" stroke="#34d399" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="400" y="469" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">08 · sharpened product</text>
+    <text x="650" y="458" font-size="10.5" fill="#7dd3fc" text-anchor="middle">diagnoses, fixes,</text>
+    <text x="650" y="474" font-size="10.5" fill="#7dd3fc" text-anchor="middle">explains the root cause</text>
+    <line x1="40" y1="488" x2="760" y2="488" stroke="#223352" stroke-width="1"/>
+  </g>
+
+  <!-- takeaway bar -->
+  <rect x="70" y="506" width="660" height="22" rx="11" fill="#34d399" opacity="0.07" stroke="#34d399" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="400" y="521" font-size="11.5" fill="#6ee7b7" text-anchor="middle">the human never types the code — the AI never makes the call</text>
+</svg>
