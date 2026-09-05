@@ -40,12 +40,6 @@ category_names_zh:
   economy: "经济与观察"
   language: "语言学习"
 
-category_desc_zh:
-  tech: "Kubernetes、CI/CD、云原生与 AI 工程笔记"
-  hobby: "篮球、音乐与一切让生活有趣的事"
-  economy: "宏观趋势、市场动态与我的解读"
-  language: "我的英语学习之路——方法与随笔"
-
 # Default layout for posts
 defaults:
   - scope:
