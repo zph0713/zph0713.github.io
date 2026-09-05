@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 392" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111b30"/><stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9db1d8"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="799" height="391" rx="18" fill="url(#bg)" stroke="#223352" stroke-width="1"/>
+
+  <text x="40" y="36" font-size="12.5" font-weight="bold" letter-spacing="2" fill="#a5b4fc">THE ROUTE OF ONE CALL</text>
+  <text x="760" y="36" font-size="12" font-style="italic" fill="#8fa3c8" text-anchor="end">six gates · three exits · zero code changes</text>
+  <text x="40" y="58" font-size="9" font-style="italic" fill="#8fa3c8">resolve(alias, tenant, user) — the pseudo-code hidden inside the Router box of the architecture diagram</text>
+
+  <!-- brick 1: tier gate -->
+  <g>
+    <rect x="40" y="104" width="108" height="120" rx="10" fill="#152238" stroke="#818cf8" stroke-opacity="0.65" stroke-width="1.5"/>
+    <text x="52" y="128" font-size="9.5" font-weight="bold" fill="#a5b4fc">1 · TIER GATE</text>
+    <text x="52" y="146" font-size="8.5" fill="#c9d4ea">plan decides the</text>
+    <text x="52" y="160" font-size="8.5" fill="#c9d4ea">allowed tier</text>
+    <text x="52" y="174" font-size="8.5" fill="#c9d4ea">for this alias</text>
+  </g>
+
+  <!-- brick 2: cache -->
+  <g>
+    <rect x="162" y="104" width="108" height="120" rx="10" fill="#152238" stroke="#34d399" stroke-opacity="0.7" stroke-width="1.5"/>
+    <text x="174" y="128" font-size="9.5" font-weight="bold" fill="#6ee7b7">2 · CACHE LOOKUP</text>
+    <text x="174" y="146" font-size="8.5" fill="#c9d4ea">non-stream only —</text>
+    <text x="174" y="160" font-size="8.5" fill="#c9d4ea">hit → return now,</text>
+    <text x="174" y="174" font-size="8.5" fill="#6ee7b7">billed at cache price</text>
+  </g>
+
+  <!-- brick 3: source -->
+  <g>
+    <rect x="284" y="104" width="108" height="120" rx="10" fill="#152238" stroke="#818cf8" stroke-opacity="0.65" stroke-width="1.5"/>
+    <text x="296" y="128" font-size="9.5" font-weight="bold" fill="#a5b4fc">3 · SOURCE</text>
+    <text x="296" y="146" font-size="8.5" fill="#c9d4ea">BYOK healthy →</text>
+    <text x="296" y="160" font-size="8.5" fill="#c9d4ea">user's own key;</text>
+    <text x="296" y="174" font-size="8.5" fill="#c9d4ea">else platform pool</text>
+  </g>
+
+  <!-- brick 4: pick key -->
+  <g>
+    <rect x="406" y="104" width="108" height="120" rx="10" fill="#152238" stroke="#818cf8" stroke-opacity="0.65" stroke-width="1.5"/>
+    <text x="418" y="128" font-size="9.5" font-weight="bold" fill="#a5b4fc">4 · PICK KEY</text>
+    <text x="418" y="146" font-size="8.5" fill="#c9d4ea">round-robin · quota</text>
+    <text x="418" y="160" font-size="8.5" fill="#c9d4ea">cost-first · latency</text>
+    <text x="418" y="174" font-size="8.5" fill="#c9d4ea">health-weighted</text>
+  </g>
+
+  <!-- brick 5: quota -->
+  <g>
+    <rect x="528" y="104" width="108" height="120" rx="10" fill="#152238" stroke="#fbbf24" stroke-opacity="0.7" stroke-width="1.5"/>
+    <text x="540" y="128" font-size="9.5" font-weight="bold" fill="#fcd34d">5 · QUOTA GATE</text>
+    <text x="540" y="146" font-size="8.5" fill="#c9d4ea">quota enough?</text>
+    <text x="540" y="160" font-size="8.5" fill="#c9d4ea">short → 429 +</text>
+    <text x="540" y="174" font-size="8.5" fill="#fcd34d">upgrade prompt</text>
+  </g>
+
+  <!-- brick 6: call and meter -->
+  <g>
+    <rect x="650" y="104" width="108" height="120" rx="10" fill="#152238" stroke="#34d399" stroke-opacity="0.7" stroke-width="1.5"/>
+    <text x="662" y="128" font-size="9.5" font-weight="bold" fill="#6ee7b7">6 · CALL &amp; METER</text>
+    <text x="662" y="146" font-size="8.5" fill="#c9d4ea">engine call (SSE),</text>
+    <text x="662" y="160" font-size="8.5" fill="#c9d4ea">picked key attached</text>
+    <text x="662" y="174" font-size="8.5" fill="#c9d4ea">usage → atomic row</text>
+  </g>
+
+  <!-- stage arrows -->
+  <line x1="150" y1="164" x2="159" y2="164" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="272" y1="164" x2="281" y2="164" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="394" y1="164" x2="403" y2="164" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="516" y1="164" x2="525" y2="164" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="638" y1="164" x2="647" y2="164" stroke="#9db1d8" stroke-opacity="0.8" stroke-width="1.4" marker-end="url(#arr)"/>
+
+  <!-- failure branch from brick 6 -->
+  <line x1="704" y1="226" x2="704" y2="250" stroke="#fb7185" stroke-width="1.4" stroke-dasharray="3,3" marker-end="url(#arr)"/>
+  <text x="712" y="242" font-size="8" fill="#fda4af">upstream 429/5xx</text>
+
+  <!-- summary bar -->
+  <rect x="40" y="278" width="718" height="66" rx="12" fill="#152238" stroke="#223352" stroke-width="1.2"/>
+  <text x="58" y="302" font-size="9" fill="#c9d4ea">every gate reads live policy — plans · routing_rules · pool strategy · model_catalog — flip a rule, no deploy</text>
+  <text x="58" y="320" font-size="9" fill="#c9d4ea">three exits, all metered and auditable:</text>
+  <text x="58" y="336" font-size="9" fill="#6ee7b7">cache hit → instant return</text>
+  <text x="228" y="336" font-size="9" fill="#fcd34d">over quota → 429 + upgrade prompt</text>
+  <text x="462" y="336" font-size="9" fill="#fda4af">failure → next key → fallback → degraded</text>
+
+  <text x="400" y="374" font-size="8.5" font-style="italic" fill="#8fa3c8" text-anchor="middle">policy is data — the request path itself stays boring and fast</text>
+</svg>

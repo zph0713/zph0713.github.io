@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111b30"/><stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="799" height="349" rx="18" fill="url(#bg)" stroke="#223352" stroke-width="1"/>
+
+  <text x="40" y="36" font-size="12.5" font-weight="bold" letter-spacing="2" fill="#67e8f9">THE CONNECTION CLIFF</text>
+  <text x="760" y="36" font-size="12" font-style="italic" fill="#8fa3c8" text-anchor="end">why per-key concurrency control is not optional</text>
+
+  <!-- safe zone band (measured single-node range) -->
+  <rect x="90" y="70" width="264" height="180" fill="rgba(52,211,153,0.05)"/>
+  <text x="100" y="240" font-size="8" fill="#6ee7b7">safe single-node zone ≈ 100–150 conns</text>
+
+  <!-- cliff zone band -->
+  <rect x="360" y="70" width="150" height="180" fill="rgba(251,113,133,0.06)"/>
+  <line x1="360" y1="70" x2="360" y2="250" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <text x="368" y="238" font-size="8" fill="#fda4af">uvicorn h11 cliff: ~120+ conns — latency explodes</text>
+
+  <!-- gridlines -->
+  <g stroke="#223352" stroke-width="1">
+    <line x1="90" y1="214" x2="750" y2="214"/>
+    <line x1="90" y1="178" x2="750" y2="178"/>
+    <line x1="90" y1="142" x2="750" y2="142"/>
+    <line x1="90" y1="106" x2="750" y2="106"/>
+    <line x1="90" y1="70" x2="750" y2="70"/>
+  </g>
+  <g font-size="8.5" fill="#64748b">
+    <text x="82" y="217" text-anchor="end">500</text>
+    <text x="82" y="181" text-anchor="end">1000</text>
+    <text x="82" y="145" text-anchor="end">1500</text>
+    <text x="82" y="109" text-anchor="end">2000</text>
+    <text x="82" y="73" text-anchor="end">2500</text>
+  </g>
+  <text x="24" y="163" font-size="9" fill="#8fa3c8" text-anchor="middle" transform="rotate(-90 24 163)">gateway QPS</text>
+
+  <!-- measured: serial 364 QPS -->
+  <circle cx="92" cy="224" r="4.5" fill="#34d399" stroke="#e8f6ff" stroke-width="1.4"/>
+  <text x="92" y="245" font-size="8.5" fill="#c9d4ea" text-anchor="middle">serial: 364 QPS</text>
+  <text x="92" y="256" font-size="7.5" fill="#64748b" text-anchor="middle">~2.7 ms / call</text>
+
+  <!-- measured: 100 conns 2276 QPS -->
+  <circle cx="310" cy="86" r="5" fill="#34d399" stroke="#e8f6ff" stroke-width="1.4"/>
+  <text x="310" y="62" font-size="9" font-weight="bold" fill="#6ee7b7" text-anchor="middle">100 conns → 2276 QPS</text>
+
+  <!-- measured: 250 conns 417 QPS -->
+  <circle cx="640" cy="220" r="4.5" fill="#fb7185" stroke="#ffe4e6" stroke-width="1.4"/>
+  <text x="640" y="240" font-size="8.5" fill="#fda4af" text-anchor="middle">250 conns → 417 QPS</text>
+
+  <!-- interpolated trend -->
+  <polyline points="92,224 160,168 230,120 310,86 330,86 360,120 392,196 470,210 550,215 640,220"
+            fill="none" stroke="#34d399" stroke-width="2.2" filter="url(#glow)" stroke-linejoin="round"/>
+
+  <!-- semaphore reference line -->
+  <line x1="90" y1="105" x2="750" y2="105" stroke="#fbbf24" stroke-width="1.4" stroke-dasharray="7,5"/>
+  <text x="746" y="96" font-size="9" font-weight="bold" fill="#fcd34d" text-anchor="end">semaphore cap 100 → 2021 QPS · p50 44 ms</text>
+  <text x="746" y="120" font-size="8" fill="#8fa3c8" text-anchor="end">300-request burst, flat &amp; predictable</text>
+
+  <!-- axes -->
+  <line x1="90" y1="250" x2="750" y2="250" stroke="#5b6b8c" stroke-width="1.3"/>
+  <line x1="90" y1="70" x2="90" y2="250" stroke="#5b6b8c" stroke-width="1.3"/>
+  <g font-size="8.5" fill="#8fa3c8" text-anchor="middle">
+    <text x="90" y="268">0</text>
+    <text x="310" y="268">100</text>
+    <text x="530" y="268">200</text>
+    <text x="750" y="268">300</text>
+  </g>
+  <text x="420" y="288" font-size="9" fill="#8fa3c8" text-anchor="middle">concurrent connections (no semaphore)</text>
+
+  <text x="400" y="322" font-size="8.5" font-style="italic" fill="#64748b" text-anchor="middle">measured points only — curve between them is interpolated. self-restraint before the 429: one queue per upstream key</text>
+</svg>
