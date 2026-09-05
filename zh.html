@@ -1,0 +1,43 @@
+---
+layout: default
+title: 中文版
+lang: zh-CN
+permalink: /zh/
+---
+<div class="page-head">
+    <div class="container reveal">
+        <span class="hero-badge">🌐 中文</span>
+        <h1>中文译文</h1>
+        <p>本站正文以英文为主；这里收录部分文章的简体中文翻译。英文原文始终是最新、最完整的版本。</p>
+    </div>
+</div>
+
+<section class="container page-body reveal">
+    {% assign cats = "tech,hobby,economy,language" | split: "," %}
+    {% assign has_any = false %}
+    {% for c in cats %}
+        {% assign tmp = site.zh | where: "column", c %}
+        {% if tmp.size > 0 %}{% assign has_any = true %}{% endif %}
+    {% endfor %}
+
+    {% if has_any %}
+        {% for c in cats %}
+            {% assign zhposts = site.zh | where: "column", c | sort: 'date' | reverse %}
+            {% if zhposts.size > 0 %}
+                <h2 class="zh-col-head">{{ site.category_icons[c] }} {{ site.category_names_zh[c] }}</h2>
+                <div class="post-list">
+                    {% for post in zhposts %}
+                        <a class="post-row" href="{{ post.url | relative_url }}">
+                            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                            <span class="post-title">{{ post.title }}</span>
+                            <span class="post-arrow">→</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <p style="margin-top: 36px; color: var(--ink-2); font-size: 0.92rem;">💡 译稿可能滞后于英文原文；如发现出入，以英文版为准。</p>
+    {% else %}
+        <div class="empty-state">🌱 中文译文还在路上……</div>
+    {% endif %}
+</section>

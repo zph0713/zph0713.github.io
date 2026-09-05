@@ -606,3 +606,21 @@ img { max-width: 100%; }
   .post-page.paper .post-content .figure { margin: 1.6em 0; }
   .post-page.paper .references { column-count: 1; }
 }
+
+/* ── 双语互链（2026-09-06，EN 原生 + _zh/ 中文镜像）── */
+.lang-switch { margin: 6px 0 0; }
+.lang-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.9rem; font-weight: 600;
+  padding: 8px 18px; border-radius: 999px;
+  background: #fff; color: var(--ink);
+  border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, border-color 0.2s, color 0.2s;
+}
+.lang-chip:hover {
+  color: var(--brand); border-color: rgba(99, 102, 241, 0.35);
+  transform: translateY(-1px);
+}
+/* 中文总览页 /zh/ */
+.zh-col-head { margin: 36px 0 14px; font-size: 1.22rem; color: var(--ink); }
+.zh-col-head:first-of-type { margin-top: 0; }

@@ -1,19 +1,47 @@
 ---
 layout: default
 ---
+{% comment %}
+  Bilingual logic (2026-09-06): English posts in _posts/ are the native content.
+  A Simplified-Chinese mirror lives in collection "zh" (_zh/*.md) and always
+  declares translation_of: <en url>. Presence of page.translation_of marks a zh
+  page; otherwise this is an EN page and we look up its zh sibling in site.zh.
+{% endcomment %}
 <article class="post-page container reveal{% if page.style == 'paper' %} paper{% endif %}">
     <header class="post-header">
         <div class="post-meta">
             {% assign cat = page.categories.first %}
             {% if cat %}
-                <span class="pill pill-{{ cat }}">{{ site.category_names[cat] | default: cat }}</span>
+                {% if page.translation_of %}
+                    <span class="pill pill-{{ cat }}">{{ site.category_names_zh[cat] | default: cat }}</span>
+                {% else %}
+                    <span class="pill pill-{{ cat }}">{{ site.category_names[cat] | default: cat }}</span>
+                {% endif %}
             {% endif %}
-            <span class="post-date">{{ page.date | date: "%b %d, %Y" }}</span>
-            <span class="post-date">·</span>
-            <span class="post-date">{{ content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} min read</span>
+            {% assign readtime = content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 %}
+            {% if page.translation_of %}
+                <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+                <span class="post-date">·</span>
+                <span class="post-date">{{ readtime }} 分钟阅读</span>
+            {% else %}
+                <span class="post-date">{{ page.date | date: "%b %d, %Y" }}</span>
+                <span class="post-date">·</span>
+                <span class="post-date">{{ readtime }} min read</span>
+            {% endif %}
         </div>
         <h1>{{ page.title }}</h1>
         {% if page.description %}<p class="post-desc">{{ page.description }}</p>{% endif %}
+        {% if page.translation_of %}
+            {% assign en_post = site.posts | where: "url", page.translation_of | first %}
+            {% if en_post %}
+                <p class="lang-switch"><a class="lang-chip" href="{{ en_post.url | relative_url }}">🇬🇧 English original →</a></p>
+            {% endif %}
+        {% else %}
+            {% assign zh_post = site.zh | where: "translation_of", page.url | first %}
+            {% if zh_post %}
+                <p class="lang-switch"><a class="lang-chip" href="{{ zh_post.url | relative_url }}">🌐 中文版 · {{ zh_post.title }} →</a></p>
+            {% endif %}
+        {% endif %}
     </header>
 
     <div class="post-content">
@@ -24,6 +52,10 @@ layout: default
         <div class="post-tags">
             {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
         </div>
-        <a class="btn btn-ghost" href="{{ "/" | relative_url }}">← Back home</a>
+        {% if page.translation_of %}
+            <a class="btn btn-ghost" href="{{ "/" | relative_url }}">← 返回首页</a>
+        {% else %}
+            <a class="btn btn-ghost" href="{{ "/" | relative_url }}">← Back home</a>
+        {% endif %}
     </footer>
 </article>

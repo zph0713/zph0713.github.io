@@ -23,6 +23,29 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# ── Chinese mirror ──────────────────────────────
+# English posts stay the canonical, native content in `_posts/` (unchanged:
+# categories, feed, home page all keep listing only site.posts). Optional
+# Simplified-Chinese translations live in `_zh/*.md` (collection "zh"),
+# rendered at /zh/:title/. Each zh doc declares `translation_of:` pointing at
+# its English original URL; the post layout auto-links both ways.
+collections:
+  zh:
+    output: true
+    permalink: /zh/:title/
+
+category_names_zh:
+  tech: "DevOps 与 AI"
+  hobby: "兴趣与生活"
+  economy: "经济与观察"
+  language: "语言学习"
+
+category_desc_zh:
+  tech: "Kubernetes、CI/CD、云原生与 AI 工程笔记"
+  hobby: "篮球、音乐与一切让生活有趣的事"
+  economy: "宏观趋势、市场动态与我的解读"
+  language: "我的英语学习之路——方法与随笔"
+
 # Default layout for posts
 defaults:
   - scope:
