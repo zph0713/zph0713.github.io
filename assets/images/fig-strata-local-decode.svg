@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 392" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111b30"/><stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="0.5" y="0.5" width="799" height="391" rx="18" fill="url(#bg)" stroke="#223352" stroke-width="1"/>
+  <text x="40" y="34" font-size="15" font-weight="bold" fill="#ffffff">Decode speed against prompt depth — one machine, engine log</text>
+  <text x="760" y="34" font-size="10.5" font-style="italic" fill="#8fa3c8" text-anchor="end">RTX 4080 SUPER 32GB · IQ2_XS · MTP on</text>
+  <line x1="100" y1="270.3" x2="740" y2="270.3" stroke="#223352" stroke-width="1"/>
+  <text x="88" y="274.3" font-size="9.5" fill="#8fa3c8" text-anchor="end">50</text>
+  <line x1="100" y1="212.0" x2="740" y2="212.0" stroke="#223352" stroke-width="1"/>
+  <text x="88" y="216.0" font-size="9.5" fill="#8fa3c8" text-anchor="end">100</text>
+  <line x1="100" y1="153.7" x2="740" y2="153.7" stroke="#223352" stroke-width="1"/>
+  <text x="88" y="157.7" font-size="9.5" fill="#8fa3c8" text-anchor="end">150</text>
+  <line x1="100" y1="95.3" x2="740" y2="95.3" stroke="#223352" stroke-width="1"/>
+  <text x="88" y="99.3" font-size="9.5" fill="#8fa3c8" text-anchor="end">200</text>
+  <line x1="100.0" y1="282" x2="100.0" y2="290" stroke="#3b5374" stroke-width="1"/>
+  <text x="100.0" y="304" font-size="9.5" fill="#8fa3c8" text-anchor="middle">0K</text>
+  <line x1="260.0" y1="282" x2="260.0" y2="290" stroke="#3b5374" stroke-width="1"/>
+  <text x="260.0" y="304" font-size="9.5" fill="#8fa3c8" text-anchor="middle">64K</text>
+  <line x1="420.0" y1="282" x2="420.0" y2="290" stroke="#3b5374" stroke-width="1"/>
+  <text x="420.0" y="304" font-size="9.5" fill="#8fa3c8" text-anchor="middle">128K</text>
+  <line x1="580.0" y1="282" x2="580.0" y2="290" stroke="#3b5374" stroke-width="1"/>
+  <text x="580.0" y="304" font-size="9.5" fill="#8fa3c8" text-anchor="middle">192K</text>
+  <line x1="740.0" y1="282" x2="740.0" y2="290" stroke="#3b5374" stroke-width="1"/>
+  <text x="740.0" y="304" font-size="9.5" fill="#8fa3c8" text-anchor="middle">256K</text>
+  <text x="88" y="304" font-size="9.5" fill="#8fa3c8" text-anchor="end">tok/s</text>
+  <polyline points="102.4,235.8 109.8,237.0 180.0,239.7 256.2,254.3 412.5,255.5 740.0,267.1" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="6 4" opacity="0.85"/>
+  <circle cx="102.4" cy="235.8" r="3" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="109.8" cy="237.0" r="3" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="180.0" cy="239.7" r="3" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="256.2" cy="254.3" r="3" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="412.5" cy="255.5" r="3" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="740.0" cy="267.1" r="3" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="100.4" cy="138.5" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="102.6" cy="143.9" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="105.8" cy="152.7" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="114.5" cy="183.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="146.3" cy="156.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="165.4" cy="145.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="172.0" cy="139.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="189.4" cy="145.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="196.0" cy="150.9" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="230.9" cy="162.3" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="237.6" cy="150.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="251.7" cy="150.9" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="256.8" cy="139.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="260.7" cy="147.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="262.1" cy="133.7" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="267.0" cy="161.9" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="268.0" cy="142.5" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="272.3" cy="99.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="275.9" cy="130.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="279.3" cy="131.5" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="283.7" cy="141.3" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="287.7" cy="115.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="291.6" cy="80.8" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="294.8" cy="167.0" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="301.0" cy="143.8" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="303.1" cy="142.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="309.7" cy="120.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="314.3" cy="154.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="315.5" cy="156.5" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="322.4" cy="147.5" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="324.2" cy="137.7" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="331.2" cy="165.9" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="333.0" cy="171.3" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="334.7" cy="143.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="339.2" cy="179.0" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="340.7" cy="164.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="102.7" cy="153.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="345.7" cy="120.9" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="352.6" cy="116.7" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="358.9" cy="167.7" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="361.2" cy="128.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="363.1" cy="155.4" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="365.3" cy="123.4" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="367.6" cy="159.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="369.9" cy="140.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="372.3" cy="121.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="374.5" cy="153.3" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="377.4" cy="124.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="381.9" cy="136.8" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="385.9" cy="161.4" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="388.0" cy="154.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="392.2" cy="198.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="394.1" cy="189.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="396.0" cy="151.0" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="399.2" cy="169.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="102.7" cy="151.2" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="404.2" cy="188.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="404.7" cy="170.8" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="406.3" cy="176.8" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="407.8" cy="184.5" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="409.0" cy="201.7" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="409.8" cy="155.6" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="411.7" cy="153.1" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <circle cx="413.6" cy="153.3" r="4.2" fill="#a78bfa" filter="url(#glow)"/>
+  <text x="118" y="62" font-size="10.5" fill="#c4b5fd">measured here — 64 sustained runs (256+ tokens generated), 14 to 128K prompt</text>
+  <text x="500" y="252" font-size="10.5" fill="#93c5fd">official IQ2_XS curve, RTX 5070 12GB</text>
+  <text x="40" y="344" font-size="9.5" fill="#8fa3c8">Sustained runs only (256+ generated tokens): 150 tok/s under 10K prompt tokens, 155</text>
+  <text x="40" y="356" font-size="9.5" fill="#8fa3c8">at 10-40K, 153 at 40-128K. The official curve falls 34% from 1K to 262K; here it does</text>
+  <text x="40" y="368" font-size="9.5" fill="#8fa3c8">not fall, because the expert cache holds 18.5k slots - 99.5% hit rate, 6,459,361 of</text>
+  <text x="40" y="380" font-size="9.5" fill="#8fa3c8">6,494,373 lookups. MTP draft acceptance rises with depth: 72% under 1K, 81% above 40K.</text>
+</svg>

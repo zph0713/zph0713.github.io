@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111b30"/><stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="0.5" y="0.5" width="799" height="249" rx="18" fill="url(#bg)" stroke="#223352" stroke-width="1"/>
+  <text x="40" y="34" font-size="15" font-weight="bold" fill="#ffffff">The ladder Strata climbs down: bytes for tokens</text>
+  <text x="760" y="34" font-size="10.5" font-style="italic" fill="#8fa3c8" text-anchor="end">decode tok/s at a 1K prompt</text>
+  <text x="236" y="73" font-size="10.5" fill="#dbe4f3" text-anchor="end" font-weight="bold">BF16 full weights</text>
+  <rect x="250" y="61" width="220.0" height="10" rx="5" fill="#3b5374"/>
+  <text x="478.0" y="72" font-size="9.5" fill="#8fa3c8">360.0 GB - datacenter / multi-GPU</text>
+  <text x="760" y="72" font-size="10.5" fill="#cbd5e1" font-weight="bold" text-anchor="end">n/a</text>
+  <text x="236" y="107" font-size="10.5" fill="#dbe4f3" text-anchor="end" font-weight="bold">IQ3_S</text>
+  <rect x="250" y="95" width="33.5" height="10" rx="5" fill="#3b5374"/>
+  <text x="291.5" y="106" font-size="9.5" fill="#8fa3c8">54.8 GB - matches the published tests</text>
+  <text x="760" y="106" font-size="10.5" fill="#cbd5e1" font-weight="bold" text-anchor="end">53.0</text>
+  <text x="236" y="141" font-size="10.5" fill="#dbe4f3" text-anchor="end" font-weight="bold">IQ3_XXS</text>
+  <rect x="250" y="129" width="28.7" height="10" rx="5" fill="#3b5374"/>
+  <text x="286.7" y="140" font-size="9.5" fill="#8fa3c8">47.0 GB - great</text>
+  <text x="760" y="140" font-size="10.5" fill="#cbd5e1" font-weight="bold" text-anchor="end">62.0</text>
+  <text x="236" y="175" font-size="10.5" fill="#c4b5fd" text-anchor="end" font-weight="bold">IQ2_XS - what runs here</text>
+  <rect x="250" y="163" width="24.0" height="10" rx="5" fill="#a78bfa" filter="url(#glow)"/>
+  <text x="282.0" y="174" font-size="9.5" fill="#8fa3c8">39.2 GB - better, slightly below full</text>
+  <text x="760" y="174" font-size="10.5" fill="#cbd5e1" font-weight="bold" text-anchor="end">79.6</text>
+  <line x1="735" y1="56" x2="735" y2="188" stroke="#223352" stroke-width="1"/>
+  <text x="40" y="202" font-size="9.5" fill="#8fa3c8">Footprints and speeds from Strata's own model guide (official IQ2_XS curve, RTX 5070 12GB).</text>
+  <text x="40" y="214" font-size="9.5" fill="#8fa3c8">The same IQ2_XS runs 109-212 tok/s on a 4080 SUPER: the expert cache holds 18.5k slots</text>
+  <text x="40" y="226" font-size="9.5" fill="#8fa3c8">instead of a handful. Quality labels are the project's own wording - per-quantization</text>
+  <text x="40" y="238" font-size="9.5" fill="#8fa3c8">benchmark deltas are not published, so the ladder shows the trade, not a measured drop.</text>
+</svg>
